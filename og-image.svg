@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0e1a"/>
+      <stop offset="100%" style="stop-color:#0d1530"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1a56ff"/>
+      <stop offset="100%" style="stop-color:#4d7bff"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Subtle grid lines -->
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="#1a2040" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="#1a2040" stroke-width="1"/>
+  <line x1="400" y1="0" x2="400" y2="630" stroke="#1a2040" stroke-width="1"/>
+  <line x1="800" y1="0" x2="800" y2="630" stroke="#1a2040" stroke-width="1"/>
+
+  <!-- Blue glow circle -->
+  <circle cx="600" cy="315" r="280" fill="#1a56ff" opacity="0.05"/>
+  <circle cx="600" cy="315" r="180" fill="#1a56ff" opacity="0.06"/>
+
+  <!-- Accent bar -->
+  <rect x="520" y="195" width="160" height="4" rx="2" fill="url(#accent)"/>
+
+  <!-- FLIPSTER text -->
+  <text x="600" y="310" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="100" fill="#ffffff" text-anchor="middle" letter-spacing="-3">Flipster</text>
+
+  <!-- Orange dot -->
+  <text x="789" y="310" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="100" fill="#d97a2e" text-anchor="middle">.</text>
+
+  <!-- Tagline -->
+  <text x="600" y="375" font-family="'Helvetica Neue', Arial, sans-serif" font-size="22" fill="#8899cc" text-anchor="middle" letter-spacing="2">AGENCE WEB · SITES VITRINE</text>
+
+  <!-- Bottom line -->
+  <rect x="0" y="610" width="1200" height="2" fill="url(#accent)" opacity="0.6"/>
+  <text x="600" y="625" font-family="'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#4d6090" text-anchor="middle" letter-spacing="1">flipster-deploy.vercel.app</text>
+</svg>
