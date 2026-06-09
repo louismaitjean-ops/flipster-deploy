@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Notre offre — Flipster | Site Vitrine Restaurant</title>
+<meta name="description" content="Découvrez notre offre site vitrine restaurant sur-mesure à 749€. Design professionnel, hébergement inclus, livraison garantie en moins d'une semaine." />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="/favicon.png" />
+<link rel="apple-touch-icon" href="/favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Geist:wght@300;400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&family=Playfair+Display:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --white:#ffffff; --paper:#fbfaf7; --tan:#d2b48c; --tan-2:#e8d7b9; --tan-3:#f3ead9;
+    --blue:#1e3a5f; --blue-2:#2c5282; --blue-3:#4a7ba8; --blue-4:#e2ecf5;
+    --charcoal:#36454f; --charcoal-2:#5a6b76; --charcoal-3:#8a9aa3;
+    --bg:var(--paper); --fg:var(--charcoal); --fg-2:var(--charcoal-2); --fg-3:var(--charcoal-3);
+    --line:rgba(54,69,79,0.10); --line-2:rgba(54,69,79,0.18);
+    --surface:#ffffff; --surface-2:#ffffff;
+    --accent:var(--blue-3); --warm:var(--tan);
+    --shadow-soft:0 2px 8px rgba(54,69,79,0.10); --shadow-elev:0 4px 20px rgba(54,69,79,0.14);
+    --glow-blue:none; --radius:8px; --radius-lg:12px; --radius-xl:16px;
+    --max:1240px; --pad:clamp(20px,4vw,40px);
+    --font-display:"Geist",ui-sans-serif,system-ui,sans-serif;
+    --font-body:"Inter",ui-sans-serif,system-ui,sans-serif;
+    --font-mono:"JetBrains Mono",ui-monospace,monospace;
+    --font-serif:"Instrument Serif","Times New Roman",serif;
+  }
+  *{box-sizing:border-box;} html,body{margin:0;padding:0;} html{scroll-behavior:smooth;}
+  body{background-color:var(--bg);background-image:radial-gradient(circle,rgba(54,69,79,0.13) 1px,transparent 1px);background-size:28px 28px;color:var(--fg);font-family:var(--font-body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  a{color:inherit;text-decoration:none;} button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad);}
+  h1,h2,h3,h4{font-family:var(--font-display);color:var(--fg);letter-spacing:-0.025em;margin:0;font-weight:600;}
+  h2{font-size:clamp(22px,2.8vw,38px);line-height:1.02;letter-spacing:-0.03em;}
+  p{margin:0;color:var(--fg-2);}
+  .serif{font-family:var(--font-serif);font-style:italic;font-weight:400;}
+  .lede{font-size:clamp(17px,1.35vw,19px);line-height:1.55;color:var(--fg-2);max-width:58ch;}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--fg-3);}
+  .eyebrow::before{content:"";width:18px;height:1px;background:currentColor;}
+
+  /* nav */
+  header.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 0;transition:padding .35s,background .35s,border-color .35s;}
+  header.nav.scrolled{padding:10px 0;background:var(--paper);border-bottom:1px solid var(--line);}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;}
+  .brand{display:inline-flex;align-items:center;gap:10px;color:var(--fg);}
+  .wordmark{font-family:"Playfair Display","Times New Roman",serif;font-weight:700;font-size:30px;letter-spacing:-0.005em;line-height:1;color:var(--charcoal);display:inline-flex;align-items:baseline;}
+  .wordmark .dot{color:#d97a2e;margin-left:1px;}
+  .brand small{font-family:var(--font-mono);font-size:10.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--fg-3);padding-left:10px;margin-left:4px;border-left:1px solid var(--line-2);}
+  nav.primary{display:flex;align-items:center;gap:2px;}
+  nav.primary a{padding:9px 14px;border-radius:999px;font-size:14px;color:var(--fg-2);transition:color .2s,background .2s;white-space:nowrap;}
+  nav.primary a:hover,nav.primary a.active{color:var(--fg);background:rgba(54,69,79,0.05);}
+  .nav-actions{display:flex;align-items:center;gap:8px;}
+  .nav-cta{height:38px;padding:0 16px;border-radius:6px;background:var(--charcoal);color:#fff;font-size:13.5px;font-weight:500;display:inline-flex;align-items:center;gap:8px;white-space:nowrap;border:1.5px solid var(--charcoal);transition:box-shadow .15s;}
+  .nav-cta:hover{box-shadow:3px 3px 0px rgba(54,69,79,0.35);}
+  @media(max-width:960px){nav.primary{display:none;}}
+
+  /* page content */
+  .page-hero{padding:clamp(120px,18vh,180px) 0 clamp(60px,8vh,80px);text-align:center;}
+  .page-hero .eyebrow{margin-bottom:20px;display:block;}
+  section{padding:clamp(60px,8vh,80px) 0;}
+  .section-head{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:clamp(40px,6vh,64px);flex-wrap:wrap;}
+
+  /* cards */
+  .service{position:relative;padding:28px 26px;border-radius:var(--radius-lg);background:#fff;border:1.5px solid var(--line-2);box-shadow:var(--shadow-soft);display:flex;flex-direction:column;gap:14px;cursor:pointer;transition:border-color .2s,box-shadow .2s;}
+  .service:hover{border-color:var(--charcoal-2);box-shadow:var(--shadow-elev);}
+  .service.featured{border-color:#94b8d8;box-shadow:var(--shadow-elev);background:linear-gradient(160deg,#eaf2f9,#fff);}
+  .service-badge{display:inline-flex;align-items:center;padding:5px 13px;border-radius:999px;background:var(--blue);color:var(--paper);font-family:var(--font-mono);font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:6px;align-self:flex-start;}
+  .pricing-price{display:flex;align-items:baseline;gap:3px;margin:6px 0 2px;}
+  .pricing-price .currency{font-family:var(--font-display);font-size:clamp(28px,3.5vw,38px);font-weight:600;letter-spacing:-0.04em;color:var(--fg);line-height:1;order:2;}
+  .pricing-price .amount{font-family:var(--font-display);font-size:clamp(28px,3.5vw,38px);font-weight:600;letter-spacing:-0.04em;color:var(--fg);line-height:1;order:1;}
+  .pricing-sub{font-size:13px;color:var(--fg-3);margin-bottom:14px;}
+  .pricing-divider{width:100%;height:1px;background:var(--line);margin:14px 0 10px;}
+  .pricing-cat{font-family:var(--font-mono);font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:var(--fg-3);margin:12px 0 7px;font-weight:600;}
+  .pricing-cat:first-child{margin-top:0;}
+  .pricing-row{display:flex;align-items:center;gap:9px;font-size:13.5px;color:var(--fg-2);margin-bottom:5px;}
+  .pricing-row .chk{display:none;}
+  .pricing-cta{margin-top:18px;display:inline-flex;align-items:center;justify-content:center;gap:8px;height:46px;border-radius:999px;font-family:var(--font-display);font-size:14px;font-weight:500;border:1px solid var(--line);background:var(--surface-2);color:var(--fg);transition:all .25s;}
+  .pricing-cta:hover{border-color:var(--line-2);transform:translateY(-1px);box-shadow:var(--shadow-soft);}
+  .pricing-cta.primary{background:var(--fg);color:var(--paper);border-color:transparent;box-shadow:var(--shadow-soft);}
+  .pricing-cta.primary:hover{box-shadow:var(--shadow-elev);}
+
+  /* footer */
+  footer.site-foot{padding:64px 0 32px;border-top:1px solid var(--line);margin-top:60px;position:relative;}
+  .footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px;padding-bottom:48px;}
+  @media(max-width:880px){.footer-top{grid-template-columns:1fr 1fr;}}
+  @media(max-width:540px){.footer-top{grid-template-columns:1fr;}}
+  .footer-col h5{font-family:var(--font-mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--fg-3);margin:0 0 16px;font-weight:500;}
+  .footer-col ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;}
+  .footer-col a{color:var(--fg-2);font-size:14.5px;transition:color .2s;}
+  .footer-col a:hover{color:var(--fg);}
+  .footer-brand p{margin-top:14px;font-size:14px;max-width:36ch;}
+  .footer-wordmark{margin-top:16px;padding-top:28px;border-top:1px solid var(--line);font-family:var(--font-display);font-weight:700;letter-spacing:-0.045em;font-size:clamp(80px,18vw,240px);line-height:0.9;text-align:center;background:linear-gradient(180deg,var(--charcoal) 25%,color-mix(in oklch,var(--blue-3) 80%,var(--charcoal)) 70%,transparent 100%);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .footer-wordmark .end{font-family:var(--font-serif);font-style:italic;font-weight:400;color:var(--tan);-webkit-text-fill-color:var(--tan);}
+  .footer-bottom{display:flex;justify-content:space-between;align-items:center;gap:24px;padding-top:24px;border-top:1px solid var(--line);font-size:12.5px;color:var(--fg-3);flex-wrap:wrap;}
+  .footer-bottom .legal{display:flex;gap:18px;}
+  .footer-bottom a:hover{color:var(--fg);}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1);}
+  .reveal.in{opacity:1;transform:none;}
+</style>
+</head>
+<body>
+
+<header class="nav" id="siteNav">
+  <div class="wrap nav-inner">
+    <a href="/" class="brand" aria-label="Flipster — Accueil">
+      <span class="wordmark">Flipster<span class="dot">.</span></span>
+      <small>Studio créatif</small>
+    </a>
+    <nav class="primary" aria-label="Navigation principale">
+      <a href="/notre-offre.html" class="active">Notre offre</a>
+      <a href="/nos-options.html">Nos options</a>
+      <a href="/#work">Réalisations</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="/#contact" class="nav-cta">
+        Démarrer un projet
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="page-hero">
+    <div class="wrap">
+      <span class="eyebrow reveal">Offre — Site vitrine sur-mesure</span>
+      <h2 class="reveal" style="margin-top:18px;">Votre restaurant en ligne en moins d'<span class="serif">une semaine.</span></h2>
+      <p class="lede reveal" style="margin:18px auto 0;text-align:center;">
+        Tout est inclus : design, hébergement, nom de domaine. On s'occupe de tout et on livre vite. Vous n'avez rien à installer, rien à configurer.
+      </p>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div style="max-width:640px;margin:0 auto;">
+        <article class="service featured reveal" style="display:flex;flex-direction:column;">
+          <span class="service-badge">Site Vitrine Restaurant</span>
+          <div class="pricing-price">
+            <span class="currency">€</span>
+            <span class="amount">749</span>
+          </div>
+          <p class="pricing-sub">Livraison garantie en moins d'une semaine</p>
+          <div class="pricing-divider"></div>
+
+          <p class="pricing-cat">Site Web</p>
+          <div class="pricing-row"><span class="chk yes">✓</span>Design professionnel sur mesure</div>
+          <div class="pricing-row"><span class="chk yes">✓</span>Portrait de votre établissement</div>
+          <div class="pricing-row"><span class="chk yes">✓</span>Menu intégré</div>
+          <div class="pricing-row"><span class="chk yes">✓</span>Réservation basique (formulaire en ligne)</div>
+          <div class="pricing-row"><span class="chk yes">✓</span>Section avis &amp; témoignages</div>
+          <div class="pricing-row"><span class="chk yes">✓</span>Adapté mobile &amp; tablette</div>
+
+          <p class="pricing-cat">Réseaux &amp; Contenu</p>
+          <div class="pricing-row"><span class="chk yes">✓</span>Liens réseaux sociaux connectés au site</div>
+
+          <p class="pricing-cat">Technique</p>
+          <div class="pricing-row"><span class="chk yes">✓</span>Hébergement 1 an inclus</div>
+          <div class="pricing-row"><span class="chk yes">✓</span>Nom de domaine inclus</div>
+          <div class="pricing-row"><span class="chk yes">✓</span>Certificat SSL (https)</div>
+
+          <p class="pricing-cat">Livraison &amp; Support</p>
+          <div class="pricing-row"><span class="chk yes">✓</span>Livraison garantie en moins d'une semaine</div>
+
+          <div style="flex:1"></div>
+          <a href="/#contact" class="pricing-cta primary" style="margin-top:22px;">
+            Intéressé ?
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </article>
+      </div>
+
+      <div style="margin-top:56px;display:flex;flex-direction:column;align-items:center;gap:14px;" class="reveal">
+        <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--fg-3);">Vous souhaitez aller plus loin ?</span>
+        <a href="/nos-options.html" style="display:inline-flex;align-items:center;gap:10px;height:48px;padding:0 22px;border-radius:6px;font-family:var(--font-display);font-size:15px;font-weight:500;border:1.5px solid var(--line-2);background:#fff;color:var(--fg);transition:box-shadow .15s;">
+          Voir nos options
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-col footer-brand">
+        <a href="/" class="brand">
+          <span class="wordmark">Flipster<span class="dot">.</span></span>
+          <small>Studio créatif</small>
+        </a>
+        <p>On est une petite équipe basée en France. On travaille sérieusement, on répond vite, et on ne disparaît pas une fois le site livré.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Plan du site</h5>
+        <ul>
+          <li><a href="/notre-offre.html">Notre offre</a></li>
+          <li><a href="/nos-options.html">Nos options</a></li>
+          <li><a href="/#work">Réalisations</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Nous joindre</h5>
+        <ul>
+          <li><a href="mailto:flipster.contact.eu@gmail.com">flipster.contact.eu@gmail.com</a></li>
+          <li><a href="tel:+33646075055">06 46 07 50 55</a></li>
+          <li><a href="/#contact">Prendre rendez-vous</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-wordmark" aria-hidden="true">Flipster<span class="end">.</span></div>
+    <div class="footer-bottom">
+      <span>© 2026 Flipster · Dirigé par Maxence Maitrejean · Réalisé avec soin en France.</span>
+      <div class="legal">
+        <a href="/mentions-legales.html">Mentions légales</a>
+        <a href="/confidentialite.html">CGV</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('siteNav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 12);
+  }, { passive: true });
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

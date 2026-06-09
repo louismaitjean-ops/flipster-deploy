@@ -121,8 +121,8 @@
     white-space: nowrap;
     text-align: center;
   }
-  h1 { font-size: clamp(56px, 9vw, 140px); line-height: 0.95; letter-spacing: -0.04em; font-weight: 500; }
-  h2 { font-size: clamp(34px, 4.8vw, 60px); line-height: 1.02; letter-spacing: -0.03em; }
+  h1 { font-size: clamp(40px, 6vw, 100px); line-height: 0.95; letter-spacing: -0.04em; font-weight: 500; }
+  h2 { font-size: clamp(22px, 2.8vw, 38px); line-height: 1.02; letter-spacing: -0.03em; }
   h3 { font-size: clamp(20px, 2vw, 26px); line-height: 1.18; letter-spacing: -0.018em; }
   p { margin: 0; color: var(--fg-2); }
   .serif { font-family: var(--font-serif); font-style: italic; font-weight: 400; }
@@ -1106,12 +1106,6 @@
 </div>
 
 
-<!-- Watermark fixe - valeurs tournantes -->
-<div aria-hidden="true" style="position:fixed;inset:0;z-index:0;pointer-events:none;display:flex;flex-direction:column;align-items:center;justify-content:center;">
-  <span style="font-family:var(--font-mono);font-size:clamp(11px,1.1vw,15px);letter-spacing:0.22em;text-transform:uppercase;color:rgba(54,69,79,0.15);margin-bottom:10px;user-select:none;">Nos valeurs</span>
-  <span id="wmText" style="font-family:'Playfair Display','Times New Roman',serif;font-weight:700;font-size:clamp(80px,14vw,220px);letter-spacing:-0.03em;line-height:1;white-space:nowrap;color:rgba(54,69,79,0.07);filter:blur(2px);user-select:none;transition:opacity 0.7s ease;">Performance</span>
-</div>
-
 <div class="site">
 
 <!-- ============================ HEADER ============================ -->
@@ -1122,8 +1116,8 @@
       <small>Studio créatif</small>
     </a>
     <nav class="primary" aria-label="Navigation principale">
-      <a href="#offres" data-fr="Notre offre" data-en="Our offer">Notre offre</a>
-      <a href="#options" data-fr="Nos options" data-en="Our options">Nos options</a>
+      <a href="/notre-offre.html" data-fr="Notre offre" data-en="Our offer">Notre offre</a>
+      <a href="/nos-options.html" data-fr="Nos options" data-en="Our options">Nos options</a>
       <a href="#work" data-fr="Réalisations" data-en="Work">Réalisations</a>
       <a href="#contact" data-fr="Contact" data-en="Contact">Contact</a>
     </nav>
@@ -1162,13 +1156,16 @@
       <aside class="hero-card reveal" aria-hidden="true" style="display:none"></aside>
     </div>
 
-    <div class="marquee" aria-hidden="true">
+    <div style="margin-top:clamp(60px,9vh,90px);padding-top:28px;border-top:1px solid var(--line);">
+      <p style="font-family:var(--font-mono);font-size:13px;letter-spacing:0.18em;text-transform:uppercase;color:var(--fg-3);text-align:center;margin-bottom:20px;">Nos valeurs</p>
+    <div class="marquee" style="margin-top:0;border-top:none;padding-top:0;" aria-hidden="true">
       <div class="marquee-track">
         <span>Performance</span><span>Rapidité</span><span>Efficacité</span><span>Simplicité</span><span>Accessibilité</span>
         <span>Performance</span><span>Rapidité</span><span>Efficacité</span><span>Simplicité</span><span>Accessibilité</span>
         <span>Performance</span><span>Rapidité</span><span>Efficacité</span><span>Simplicité</span><span>Accessibilité</span>
         <span>Performance</span><span>Rapidité</span><span>Efficacité</span><span>Simplicité</span><span>Accessibilité</span>
       </div>
+    </div>
     </div>
   </div>
 </section>
@@ -1248,13 +1245,9 @@
 
     </div>
 
-    <div style="margin-top:36px; display:flex; justify-content:center; gap:12px; flex-wrap:wrap;" class="reveal">
+    <div style="margin-top:36px; display:flex; justify-content:center;" class="reveal">
       <a href="#" onclick="openMaquette('/maquette-restaurant/');return false;" class="btn primary">
         Voir la maquette complète
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </a>
-      <a href="#contact" class="btn">
-        <span data-fr="Je veux un site comme celui-ci" data-en="I want a site like this">Je veux un site comme celui-ci</span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </a>
     </div>
@@ -1338,205 +1331,6 @@
 @media (max-width: 640px) { .hide-mobile { display:none !important; } }
 </style>
 
-<!-- ============================ OFFRES ============================ -->
-<section id="offres" data-screen-label="03 Offres">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div>
-        <span class="eyebrow">Offre — Site vitrine sur-mesure</span>
-        <h2 style="margin-top:18px;">Votre restaurant en ligne en moins d’<span class="serif">une semaine.</span></h2>
-      </div>
-      <p class="lede">
-        Tout est inclus : design, hébergement, nom de domaine. On s’occupe de tout et on livre vite. Vous n’avez rien à installer, rien à configurer.
-      </p>
-    </div>
-
-    <!-- ——— OFFRE UNIQUE ——— -->
-    <div style="max-width:640px; margin:0 auto;">
-      <article class="service featured reveal" style="display:flex;flex-direction:column;">
-        <span class="service-badge">Site Vitrine Restaurant</span>
-        <div class="pricing-price">
-          <span class="currency">€</span>
-          <span class="amount">749</span>
-        </div>
-        <p class="pricing-sub">Livraison garantie en moins d'une semaine</p>
-        <div class="pricing-divider"></div>
-
-        <p class="pricing-cat">Site Web</p>
-        <div class="pricing-row"><span class="chk yes">✓</span>Design professionnel sur mesure</div>
-        <div class="pricing-row"><span class="chk yes">✓</span>Portrait de votre établissement</div>
-        <div class="pricing-row"><span class="chk yes">✓</span>Menu intégré</div>
-        <div class="pricing-row"><span class="chk yes">✓</span>Réservation basique (formulaire en ligne)</div>
-        <div class="pricing-row"><span class="chk yes">✓</span>Section avis &amp; témoignages</div>
-        <div class="pricing-row"><span class="chk yes">✓</span>Adapté mobile &amp; tablette</div>
-
-        <p class="pricing-cat">Réseaux &amp; Contenu</p>
-        <div class="pricing-row"><span class="chk yes">✓</span>Liens réseaux sociaux connectés au site</div>
-
-        <p class="pricing-cat">Technique</p>
-        <div class="pricing-row"><span class="chk yes">✓</span>Hébergement 1 an inclus</div>
-        <div class="pricing-row"><span class="chk yes">✓</span>Nom de domaine inclus</div>
-        <div class="pricing-row"><span class="chk yes">✓</span>Certificat SSL (https)</div>
-
-        <p class="pricing-cat">Livraison &amp; Support</p>
-        <div class="pricing-row"><span class="chk yes">✓</span>Livraison garantie en moins d’une semaine</div>
-
-        <div style="flex:1"></div>
-        <a href="#contact" class="pricing-cta primary" style="margin-top:22px;">
-          Intéressé ?
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
-      </article>
-    </div>
-
-    <!-- ——— BOUTON VOIR NOS OPTIONS ——— -->
-    <div style="margin-top:56px; display:flex; flex-direction:column; align-items:center; gap:14px;" class="reveal">
-      <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--fg-3);">Vous souhaitez aller plus loin ?</span>
-      <a href="#options" class="btn no-wave" id="btnVoirOptions" style="border-color: color-mix(in oklch, var(--blue) 40%, var(--line));">
-        Voir nos options
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
-      </a>
-    </div>
-
-  </div>
-</section>
-
-<!-- ============================ OPTIONS ============================ -->
-<section id="options" data-screen-label="03b Options" style="padding-top:clamp(60px,8vh,100px);">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div>
-        <span class="eyebrow">Options à la carte — Personnalisez votre site</span>
-        <h2 style="margin-top:18px;">Ajoutez ce dont vous avez <span class="serif">besoin.</span></h2>
-      </div>
-      <p class="lede">
-        Ce sont des extras, pas des pièges. Prenez ce qui vous est vraiment utile, laissez le reste.
-      </p>
-    </div>
-
-    <!-- Bouton toggle mobile uniquement -->
-    <div id="mobileOptionsToggle" style="display:none; text-align:center; margin-bottom:24px;">
-      <button id="btnShowOptions" onclick="toggleMobileOptions()" style="
-        height:48px; padding:0 28px; border-radius:999px;
-        background:var(--fg); color:var(--paper);
-        font-family:var(--font-display); font-size:15px; font-weight:500;
-        border:none; cursor:pointer;
-        display:inline-flex; align-items:center; gap:10px;
-        box-shadow:var(--shadow-soft);
-      ">
-        <span id="btnLabel">Voir toutes les options</span>
-        <svg id="btnArrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transition:transform .3s;"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
-      </button>
-    </div>
-
-    <div class="services" id="optionsGrid" style="align-items:stretch; grid-template-columns: repeat(auto-fill, minmax(280px,1fr));">
-
-      <!-- Avis Google -->
-      <article class="service reveal" style="display:flex;flex-direction:column;">
-        <span class="service-num">Avis Google automatisés</span>
-        <p class="pricing-sub" style="margin-top:8px;">One-shot · Intégré au site</p>
-        <div class="pricing-divider"></div>
-        <div class="pricing-row"><span class="chk yes">✓</span>Sync Google My Business</div>
-        <div class="pricing-row"><span class="chk yes">✓</span>Badge note Google visible</div>
-        <div class="pricing-row"><span class="chk yes">✓</span>Mise à jour automatique</div>
-        <div style="flex:1"></div>
-        <button data-modal="avis" class="pricing-cta" style="margin-top:22px;width:100%;cursor:pointer;">Voir cette option</button>
-      </article>
-
-      <!-- Tableau de bord -->
-      <article class="service reveal" style="display:flex;flex-direction:column;">
-        <span class="service-num">Tableau de bord</span>
-        <p class="pricing-sub" style="margin-top:8px;">One-shot · Analytics inclus</p>
-        <div class="pricing-divider"></div>
-        <div class="pricing-row"><span class="chk yes">✓</span>Google Analytics configuré</div>
-        <div class="pricing-row"><span class="chk yes">✓</span>Dashboard simplifié</div>
-        <div class="pricing-row"><span class="chk yes">✓</span>Rapport mensuel par email</div>
-        <div class="pricing-row"><span class="chk yes">✓</span>Suivi des réservations en ligne</div>
-        <div style="flex:1"></div>
-        <button data-modal="dashboard" class="pricing-cta" style="margin-top:22px;width:100%;cursor:pointer;">Voir cette option</button>
-      </article>
-
-      <!-- Histoire détaillée -->
-      <article class="service reveal" style="display:flex;flex-direction:column;">
-        <span class="service-num">Histoire détaillée</span>
-        <p class="pricing-sub" style="margin-top:8px;">One-shot · Page dédiée</p>
-        <div class="pricing-divider"></div>
-        <div class="pricing-row"><span class="chk yes">✓</span>Page dédiée avec timeline visuelle</div>
-        <div class="pricing-row"><span class="chk yes">✓</span>Présentation de l’équipe en photos</div>
-        <div class="pricing-row"><span class="chk yes">✓</span>Valeurs, sourcing, engagements</div>
-        <div class="pricing-row"><span class="chk yes">✓</span>Storytelling rédigé par nos soins</div>
-        <div style="flex:1"></div>
-        <button data-modal="histoire" class="pricing-cta" style="margin-top:22px;width:100%;cursor:pointer;">Voir cette option</button>
-      </article>
-
-      <!-- Multilingue -->
-      <article class="service reveal" style="display:flex;flex-direction:column;">
-        <span class="service-num">Site multilingue</span>
-        <p class="pricing-sub" style="margin-top:8px;">One-shot · FR + EN inclus</p>
-        <div class="pricing-divider"></div>
-        <div class="pricing-row"><span class="chk yes">✓</span>Français + Anglais inclus</div>
-        <div class="pricing-row"><span class="chk yes">✓</span>Langue supplémentaire sur devis</div>
-        <div class="pricing-row"><span class="chk yes">✓</span>Sélecteur de langue élégant</div>
-        <div class="pricing-row"><span class="chk yes">✓</span>Menu &amp; pages traduits</div>
-        <div style="flex:1"></div>
-        <button data-modal="multilingue" class="pricing-cta" style="margin-top:22px;width:100%;cursor:pointer;">Voir cette option</button>
-      </article>
-
-      <!-- Menu interactif -->
-      <article class="service reveal" style="display:flex;flex-direction:column;">
-        <span class="service-num">Menu interactif</span>
-        <p class="pricing-sub" style="margin-top:8px;">One-shot · Intégré au site</p>
-        <div class="pricing-divider"></div>
-        <div class="pricing-row"><span class="chk yes">✓</span>Photos HD par plat</div>
-        <div class="pricing-row"><span class="chk yes">✓</span>Composition &amp; ingrédients détaillés</div>
-        <div class="pricing-row"><span class="chk yes">✓</span>Filtres allergènes, végé, sans gluten</div>
-        <div class="pricing-row"><span class="chk yes">✓</span>Vidéos de présentation intégrables</div>
-        <div class="pricing-row"><span class="chk yes">✓</span>Mise à jour facile sans agence</div>
-        <div style="flex:1"></div>
-        <button data-modal="menu" class="pricing-cta" style="margin-top:22px;width:100%;cursor:pointer;">Voir cette option</button>
-      </article>
-
-      <!-- Agent IA -->
-      <article class="service featured reveal" style="display:flex;flex-direction:column;">
-        <span class="service-badge">Tendance</span>
-        <span class="service-num">Agent IA — Chatbot</span>
-        <p class="pricing-sub" style="margin-top:8px;">One-shot · Intégré au site</p>
-        <div class="pricing-divider"></div>
-        <div class="pricing-row"><span class="chk yes">✓</span>Répond aux questions 24h/24</div>
-        <div class="pricing-row"><span class="chk yes">✓</span>Connaît menu, horaires, adresse</div>
-        <div class="pricing-row"><span class="chk yes">✓</span>Redirige vers WhatsApp si besoin</div>
-        <div class="pricing-row"><span class="chk yes">✓</span>Personnalisé au ton de votre restaurant</div>
-        <div class="pricing-row"><span class="chk yes">✓</span>Statistiques de conversations</div>
-        <div style="flex:1"></div>
-        <button data-modal="ia" class="pricing-cta primary" style="margin-top:22px;width:100%;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;">
-          Voir cette option
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </button>
-      </article>
-
-      <!-- Plan de salle -->
-      <article class="service featured reveal" style="display:flex;flex-direction:column;">
-        <span class="service-badge">Populaire</span>
-        <span class="service-num">Plan de salle interactif</span>
-        <p class="pricing-sub" style="margin-top:8px;">One-shot · Intégré au site</p>
-        <div class="pricing-divider"></div>
-        <div class="pricing-row"><span class="chk yes">✓</span>Plan SVG fidèle à votre salle</div>
-        <div class="pricing-row"><span class="chk yes">✓</span>Tables : disponible / occupé / sur demande</div>
-        <div class="pricing-row"><span class="chk yes">✓</span>Disponibilités en temps réel</div>
-        <div class="pricing-row"><span class="chk yes">✓</span>Confirmation email automatique</div>
-        <div class="pricing-row"><span class="chk yes">✓</span>Compatible mobile &amp; tablette</div>
-        <div style="flex:1"></div>
-        <button data-modal="plan" class="pricing-cta primary" style="margin-top:22px;width:100%;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;">
-          Voir cette option
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </button>
-      </article>
-
-
-    </div>
-  </div>
-</section>
-
 <!-- TESTIMONIALS section removed -->
 
 <!-- ============================ CONTACT ============================ -->
@@ -1611,7 +1405,8 @@
       <div class="footer-col">
         <h5>Plan du site</h5>
         <ul>
-          <li><a href="#offres">Notre offre</a></li>
+          <li><a href="/notre-offre.html">Notre offre</a></li>
+          <li><a href="/nos-options.html">Nos options</a></li>
           <li><a href="#work">Réalisations</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>

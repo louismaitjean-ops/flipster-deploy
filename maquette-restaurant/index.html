@@ -1,0 +1,1513 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Le Saisonnier — Restaurant Français de Saison | Paris</title>
+<meta name="description" content="Le Saisonnier, restaurant gastronomique français niché au cœur du Marais. Cuisine de saison, produits du terroir, réservations en ligne." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<style>
+/* ============================================================
+   LE SAISONNIER — Site Restaurant complet
+   Geist · navy #0A1128 · gold #C2A24A · off-white
+   ============================================================ */
+
+:root {
+  --navy-900: #070C1F;
+  --navy-800: #0A1128;
+  --navy-700: #0E1730;
+  --navy-600: #131E3D;
+  --navy-500: #1B2A4E;
+  --line: rgba(194, 162, 74, 0.18);
+  --line-soft: rgba(255, 255, 255, 0.08);
+
+  --gold: #C2A24A;
+  --gold-bright: #D9BD63;
+  --gold-deep: #9C7F33;
+
+  --paper: #F2F1EC;
+  --paper-2: #E9E7DF;
+
+  --ink: #0A1128;
+  --ink-soft: #4A4F5E;
+  --cream: #ECEEF5;
+  --cream-soft: #9BA3BA;
+  --cream-faint: #6B748F;
+
+  --glass-bg: rgba(255, 255, 255, 0.045);
+  --glass-bd: rgba(255, 255, 255, 0.10);
+  --glass-blur: 18px;
+
+  --r-sm: 10px;
+  --r-md: 16px;
+  --r-lg: 24px;
+  --r-xl: 32px;
+  --shadow-glow: 0 0 0 1px rgba(194,162,74,0.35), 0 18px 50px -12px rgba(194,162,74,0.45);
+  --shadow-soft: 0 24px 60px -20px rgba(0,0,0,0.55);
+
+  --s-4: 4px;  --s-8: 8px;  --s-12: 12px; --s-16: 16px;
+  --s-24: 24px; --s-32: 32px; --s-48: 48px; --s-64: 64px;
+
+  --maxw: 1200px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+body {
+  font-family: 'Geist', system-ui, sans-serif;
+  background: var(--navy-800);
+  color: var(--cream);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  line-height: 1.55;
+  overflow-x: hidden;
+}
+::selection { background: rgba(194,162,74,0.30); color: #fff; }
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+h1, h2, h3, h4 {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.06;
+  text-wrap: balance;
+}
+p { text-wrap: pretty; }
+
+/* Layout */
+.wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 var(--s-32); }
+.section { position: relative; padding: clamp(72px, 11vw, 140px) 0; }
+
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: 'Geist Mono', monospace;
+  font-size: 12px; font-weight: 500;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gold);
+}
+.eyebrow::before {
+  content: ""; width: 22px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold));
+}
+.lede { color: var(--cream-soft); font-size: clamp(16px, 1.4vw, 19px); max-width: 56ch; }
+
+/* Noise overlay */
+.noise::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  opacity: 0.025; mix-blend-mode: overlay;
+}
+
+/* ---- BUTTONS ---- */
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 24px; border-radius: 999px;
+  font-size: 15px; font-weight: 600; letter-spacing: -0.01em;
+  border: 1px solid transparent; cursor: pointer; font-family: inherit;
+  transition: transform .35s var(--ease), box-shadow .35s var(--ease), background .35s var(--ease), color .35s var(--ease), border-color .35s var(--ease);
+  white-space: nowrap;
+}
+.btn svg { width: 17px; height: 17px; transition: transform .35s var(--ease); }
+.btn-primary {
+  background: linear-gradient(135deg, var(--gold-bright), var(--gold-deep));
+  color: #1A1405; box-shadow: 0 10px 30px -12px rgba(194,162,74,0.6);
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 0 1px rgba(217,189,99,0.5), 0 18px 44px -10px rgba(194,162,74,0.75); }
+.btn-primary:hover svg { transform: translateX(3px); }
+.btn-ghost { background: rgba(255,255,255,0.04); color: var(--cream); border-color: var(--glass-bd); backdrop-filter: blur(8px); }
+.btn-ghost:hover { border-color: rgba(194,162,74,0.5); color: #fff; transform: translateY(-2px); }
+.btn-dark { background: var(--navy-800); color: var(--cream); border-color: var(--line); }
+.btn-dark:hover { background: var(--navy-700); transform: translateY(-2px); box-shadow: var(--shadow-glow); }
+.link-arrow { display: inline-flex; align-items: center; gap: 8px; font-weight: 500; color: var(--cream-soft); transition: color .3s var(--ease), gap .3s var(--ease); }
+.link-arrow svg { width: 16px; height: 16px; }
+.link-arrow:hover { color: var(--gold-bright); gap: 12px; }
+:focus-visible { outline: 2px solid var(--gold-bright); outline-offset: 3px; border-radius: 4px; }
+
+/* ---- REVEAL ---- */
+[data-reveal] { transition: opacity .85s var(--ease), transform .85s var(--ease); }
+[data-reveal].pre { opacity: 0; transform: translateY(28px); }
+[data-reveal][data-delay="1"] { transition-delay: .07s; }
+[data-reveal][data-delay="2"] { transition-delay: .14s; }
+[data-reveal][data-delay="3"] { transition-delay: .21s; }
+[data-reveal][data-delay="4"] { transition-delay: .28s; }
+[data-reveal][data-delay="5"] { transition-delay: .35s; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  [data-reveal] { transition: none !important; }
+  [data-reveal].pre { opacity: 1 !important; transform: none !important; }
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  transition: background .4s var(--ease), border-color .4s var(--ease), box-shadow .4s var(--ease), padding .4s var(--ease);
+  border-bottom: 1px solid transparent;
+  padding: 10px 0;
+}
+.header.scrolled {
+  background: rgba(10, 17, 40, 0.72);
+  backdrop-filter: blur(20px) saturate(160%);
+  border-bottom-color: var(--line-soft);
+  box-shadow: 0 12px 40px -20px rgba(0,0,0,0.7);
+}
+.header__inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.brand { display: flex; align-items: center; gap: 12px; }
+.brand__mark {
+  width: 38px; height: 38px; border-radius: 11px; flex: none;
+  display: grid; place-items: center;
+  background: linear-gradient(140deg, var(--gold-bright), var(--gold-deep));
+  color: #15100A; font-weight: 800; font-size: 17px; letter-spacing: -0.04em;
+  box-shadow: 0 6px 18px -6px rgba(194,162,74,0.6);
+  font-family: 'Geist Mono', monospace;
+}
+.brand__name { display: block; font-weight: 700; font-size: 17px; letter-spacing: -0.03em; }
+.brand__name em { font-style: normal; color: var(--gold); }
+.brand__sub { display: block; font-family: 'Geist Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--cream-faint); margin-top: 2px; }
+.nav { display: flex; align-items: center; gap: 6px; }
+.nav a {
+  padding: 9px 14px; border-radius: 999px; font-size: 14.5px; font-weight: 500;
+  color: var(--cream-soft); transition: color .25s var(--ease), background .25s var(--ease);
+}
+.nav a:hover, .nav a.active { color: var(--gold-bright); background: rgba(194,162,74,0.10); }
+.header__cta { display: flex; align-items: center; gap: 14px; }
+.menu-toggle {
+  display: none; background: none; border: 1px solid var(--glass-bd); border-radius: 9px;
+  padding: 8px; color: var(--cream-soft); cursor: pointer;
+}
+.menu-toggle svg { width: 20px; height: 20px; display: block; }
+
+/* Mobile nav */
+.mobile-nav {
+  display: none; position: fixed; inset: 0; z-index: 99; padding-top: 80px;
+  background: rgba(7,12,31,0.97); backdrop-filter: blur(20px);
+  flex-direction: column; align-items: center; justify-content: center; gap: 12px;
+}
+.mobile-nav.open { display: flex; }
+.mobile-nav a { font-size: 22px; font-weight: 600; padding: 14px 28px; color: var(--cream-soft); border-radius: 12px; transition: color .2s, background .2s; }
+.mobile-nav a:hover { color: #fff; background: rgba(255,255,255,0.06); }
+.mobile-nav .btn { margin-top: 12px; }
+
+@media (max-width: 880px) {
+  .nav, .header__cta .btn { display: none; }
+  .menu-toggle { display: flex; align-items: center; justify-content: center; }
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+  position: relative; min-height: 100svh; display: flex; align-items: center;
+  overflow: hidden; padding-top: 96px;
+}
+.hero__bg {
+  position: absolute; inset: 0; z-index: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 30%, rgba(194,162,74,0.12) 0%, transparent 60%),
+    linear-gradient(160deg, #0d1a3a 0%, #070c1f 50%, #0a0f20 100%);
+}
+/* Decorative food photography placeholder */
+.hero__bg-art {
+  position: absolute; right: 0; top: 0; bottom: 0; width: 55%; z-index: 0;
+  display: flex; align-items: center; justify-content: center; overflow: hidden;
+}
+.hero__bg-art-inner {
+  width: 100%; height: 100%; position: relative;
+  background: linear-gradient(135deg, rgba(194,162,74,0.06) 0%, rgba(10,17,40,0.4) 100%);
+}
+/* Elegant striped placeholder suggesting a dish */
+.hero__plate {
+  position: absolute; right: 8%; top: 50%; transform: translateY(-50%);
+  width: 380px; height: 380px; border-radius: 50%;
+  background: radial-gradient(circle at 40% 35%, rgba(212,175,55,0.18), rgba(10,17,40,0.8) 60%);
+  border: 1px solid rgba(194,162,74,0.2);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
+  box-shadow: 0 0 120px rgba(194,162,74,0.08), inset 0 0 60px rgba(194,162,74,0.04);
+}
+.hero__plate-lines {
+  width: 60%; display: flex; flex-direction: column; gap: 10px; opacity: 0.35;
+}
+.hero__plate-lines span {
+  display: block; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.hero__plate-lines span:nth-child(2) { width: 70%; margin: 0 auto; }
+.hero__plate-lines span:nth-child(3) { width: 45%; margin: 0 auto; }
+.hero__plate-label {
+  font-family: 'Geist Mono', monospace; font-size: 10px; letter-spacing: 0.25em;
+  text-transform: uppercase; color: var(--gold); opacity: 0.5; margin-top: 8px;
+}
+.hero__overlay {
+  position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(7,12,31,0.96) 30%, rgba(7,12,31,0.55) 60%, rgba(7,12,31,0.2) 100%),
+    linear-gradient(180deg, rgba(10,17,40,0.3) 0%, transparent 40%, rgba(7,12,31,0.85) 100%);
+}
+.hero__glow {
+  position: absolute; z-index: 1; pointer-events: none;
+  width: 700px; height: 700px; right: -180px; top: -200px;
+  background: radial-gradient(circle, rgba(194,162,74,0.18), transparent 62%);
+  filter: blur(20px);
+}
+.hero__inner { position: relative; z-index: 2; width: 100%; }
+.hero__content { max-width: 680px; }
+.hero h1 {
+  font-size: clamp(44px, 7.2vw, 92px); font-weight: 700; letter-spacing: -0.035em;
+  margin: 24px 0 0;
+}
+.hero h1 em { font-style: normal; color: transparent; background: linear-gradient(120deg, var(--gold-bright), var(--gold)); -webkit-background-clip: text; background-clip: text; }
+.hero__tagline { font-family: 'Geist Mono', monospace; font-size: 13px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); opacity: 0.8; }
+.hero__sub { margin-top: 26px; font-size: clamp(17px, 1.7vw, 21px); color: var(--cream-soft); max-width: 50ch; }
+.hero__cta { margin-top: 40px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+.hero__stats { margin-top: clamp(36px, 5.5vh, 64px); display: flex; gap: 40px; flex-wrap: wrap; border-top: 1px solid var(--line-soft); padding-top: 36px; }
+.hero__stat .n { font-size: 28px; font-weight: 700; letter-spacing: -0.03em; color: #fff; }
+.hero__stat .n span { color: var(--gold); }
+.hero__stat .l { font-size: 12.5px; color: var(--cream-faint); margin-top: 2px; max-width: 14ch; line-height: 1.4; }
+.scroll-cue {
+  position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%); z-index: 2;
+  font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--cream-faint); display: flex; flex-direction: column; align-items: center; gap: 10px;
+}
+.scroll-cue .line { width: 1px; height: 40px; background: linear-gradient(var(--gold), transparent); animation: cue 2.4s var(--ease) infinite; transform-origin: top; }
+@keyframes cue { 0%,100%{ transform: scaleY(0.4); opacity:.4 } 50%{ transform: scaleY(1); opacity:1 } }
+@media (max-height: 860px) { .scroll-cue { display: none; } }
+
+/* ============================================================
+   ABOUT / STORY
+   ============================================================ */
+.about { background: linear-gradient(180deg, var(--navy-800), var(--navy-900)); }
+.about__layout { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; margin-top: 64px; }
+.about__visual {
+  position: relative; border-radius: var(--r-xl); overflow: hidden;
+  background: linear-gradient(145deg, rgba(194,162,74,0.1), rgba(10,17,40,0.6));
+  border: 1px solid var(--line); aspect-ratio: 4/5;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px;
+}
+.about__visual-stripes {
+  position: absolute; inset: 0; opacity: 0.04;
+  background: repeating-linear-gradient(45deg, var(--gold) 0px, var(--gold) 1px, transparent 1px, transparent 20px);
+}
+.about__visual-content { position: relative; text-align: center; padding: 40px; }
+.about__visual-icon { font-size: 48px; margin-bottom: 16px; }
+.about__visual-label { font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); opacity: 0.7; }
+.about__visual-sublabel { color: var(--cream-faint); font-size: 13px; margin-top: 8px; }
+.about__badge {
+  position: absolute; bottom: 24px; right: 24px;
+  background: rgba(194,162,74,0.12); border: 1px solid rgba(194,162,74,0.3);
+  border-radius: var(--r-md); padding: 16px 20px;
+  backdrop-filter: blur(12px);
+}
+.about__badge-n { font-size: 28px; font-weight: 700; color: var(--gold-bright); letter-spacing: -0.02em; }
+.about__badge-l { font-size: 12px; color: var(--cream-soft); margin-top: 2px; }
+.about__text h2 { font-size: clamp(30px, 4vw, 50px); margin-top: 18px; }
+.about__text p { color: var(--cream-soft); margin-top: 20px; font-size: 16px; line-height: 1.75; }
+.about__values { margin-top: 36px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.about__value {
+  padding: 20px; border-radius: var(--r-md);
+  background: var(--glass-bg); border: 1px solid var(--glass-bd);
+  backdrop-filter: blur(var(--glass-blur));
+}
+.about__value-icon { color: var(--gold); margin-bottom: 10px; }
+.about__value-icon svg { width: 22px; height: 22px; }
+.about__value h4 { font-size: 15px; letter-spacing: -0.01em; }
+.about__value p { font-size: 13px; color: var(--cream-soft); margin-top: 4px; }
+
+/* ============================================================
+   MENU
+   ============================================================ */
+.menu { background: var(--paper); color: var(--ink); }
+.menu .eyebrow { color: var(--gold-deep); }
+.menu .eyebrow::before { background: linear-gradient(90deg, transparent, var(--gold-deep)); }
+.menu .sec-head h2 { color: var(--ink); }
+.menu .lede { color: var(--ink-soft); }
+.menu-tabs { display: flex; gap: 8px; margin-top: 40px; flex-wrap: wrap; }
+.menu-tab {
+  padding: 10px 22px; border-radius: 999px; font-size: 14px; font-weight: 500;
+  border: 1px solid rgba(10,17,40,0.15); color: var(--ink-soft); cursor: pointer; background: transparent;
+  font-family: inherit; transition: all .25s var(--ease);
+}
+.menu-tab.active { background: var(--ink); color: #fff; border-color: var(--ink); }
+.menu-tab:hover:not(.active) { border-color: rgba(10,17,40,0.35); color: var(--ink); }
+.menu-panel { display: none; margin-top: 32px; }
+.menu-panel.active { display: block; }
+.menu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.dish-card {
+  border-radius: var(--r-lg); overflow: hidden;
+  border: 1px solid rgba(10,17,40,0.10); background: #fff;
+  box-shadow: 0 4px 20px -8px rgba(10,17,40,0.15);
+  transition: transform .4s var(--ease), box-shadow .4s var(--ease);
+}
+.dish-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px -16px rgba(10,17,40,0.25); }
+.dish-photo {
+  aspect-ratio: 4/3;
+  background: linear-gradient(135deg, rgba(194,162,74,0.15) 0%, rgba(10,17,40,0.08) 100%);
+  display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;
+}
+.dish-photo-stripes {
+  position: absolute; inset: 0; opacity: 0.07;
+  background: repeating-linear-gradient(135deg, var(--gold) 0px, var(--gold) 1px, transparent 1px, transparent 16px);
+}
+.dish-photo-label {
+  position: relative; text-align: center; padding: 20px;
+  font-family: 'Geist Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-deep); opacity: 0.6;
+}
+.dish-photo-emoji { font-size: 36px; display: block; margin-bottom: 8px; }
+.dish-tag {
+  position: absolute; top: 12px; left: 12px;
+  background: rgba(255,255,255,0.85); backdrop-filter: blur(8px);
+  border-radius: 999px; padding: 4px 12px;
+  font-size: 11px; font-weight: 600; color: var(--gold-deep); letter-spacing: 0.08em;
+}
+.dish-body { padding: 20px 22px 22px; }
+.dish-name { font-size: 17px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; }
+.dish-desc { font-size: 13.5px; color: var(--ink-soft); margin-top: 6px; line-height: 1.55; }
+.dish-foot { display: flex; align-items: center; justify-content: space-between; margin-top: 16px; padding-top: 14px; border-top: 1px solid rgba(10,17,40,0.07); }
+.dish-price { font-size: 20px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; }
+.dish-price span { color: var(--gold-deep); font-size: 14px; font-weight: 500; }
+.dish-allergens { font-size: 11px; color: var(--ink-soft); font-family: 'Geist Mono', monospace; }
+
+/* ============================================================
+   TESTIMONIALS
+   ============================================================ */
+.reviews { background: linear-gradient(180deg, var(--navy-900), var(--navy-800)); }
+.reviews-grid { margin-top: 56px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.review-card {
+  padding: 28px; border-radius: var(--r-lg);
+  background: var(--glass-bg); border: 1px solid var(--glass-bd);
+  backdrop-filter: blur(var(--glass-blur));
+  transition: transform .4s var(--ease), border-color .4s var(--ease);
+}
+.review-card:hover { transform: translateY(-4px); border-color: rgba(194,162,74,0.3); }
+.review-stars { display: flex; gap: 4px; margin-bottom: 16px; }
+.review-stars svg { width: 16px; height: 16px; color: var(--gold); fill: var(--gold); }
+.review-text { font-size: 15px; color: var(--cream-soft); line-height: 1.65; font-style: italic; }
+.review-author { display: flex; align-items: center; gap: 12px; margin-top: 20px; padding-top: 18px; border-top: 1px solid var(--line-soft); }
+.review-avatar { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(140deg, var(--gold-bright), var(--gold-deep)); display: grid; place-items: center; font-weight: 700; font-size: 15px; color: #15100A; flex: none; }
+.review-name { font-weight: 600; font-size: 14px; }
+.review-meta { font-size: 12px; color: var(--cream-faint); margin-top: 2px; font-family: 'Geist Mono', monospace; letter-spacing: 0.05em; }
+.review-source { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--cream-faint); margin-top: 4px; }
+
+/* ============================================================
+   RESERVATION
+   ============================================================ */
+.reservation { background: var(--paper); color: var(--ink); }
+.reservation .eyebrow { color: var(--gold-deep); }
+.reservation .eyebrow::before { background: linear-gradient(90deg, transparent, var(--gold-deep)); }
+.reservation__layout { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; margin-top: 64px; }
+.reservation__info h3 { font-size: clamp(24px, 3vw, 36px); color: var(--ink); margin-top: 20px; }
+.reservation__info p { color: var(--ink-soft); margin-top: 16px; font-size: 15.5px; line-height: 1.7; }
+.reservation__details { margin-top: 36px; display: grid; gap: 16px; }
+.reservation__detail { display: flex; gap: 14px; align-items: flex-start; }
+.reservation__detail-ic {
+  width: 42px; height: 42px; flex: none; border-radius: 12px;
+  background: rgba(10,17,40,0.07); display: grid; place-items: center; color: var(--gold-deep);
+}
+.reservation__detail-ic svg { width: 20px; height: 20px; }
+.reservation__detail-t { font-weight: 600; font-size: 15px; color: var(--ink); }
+.reservation__detail-d { font-size: 13.5px; color: var(--ink-soft); margin-top: 2px; }
+
+.reserve-widget {
+  background: #fff; border-radius: var(--r-xl); padding: 32px;
+  border: 1px solid rgba(10,17,40,0.10);
+  box-shadow: 0 20px 60px -24px rgba(10,17,40,0.3);
+}
+.reserve-widget h4 { font-size: 18px; color: var(--ink); margin-bottom: 24px; display: flex; align-items: center; gap: 10px; }
+.reserve-widget h4 svg { width: 20px; height: 20px; color: var(--gold-deep); }
+.reserve-step { margin-bottom: 22px; }
+.reserve-step-label { font-size: 12px; font-weight: 600; color: var(--ink-soft); letter-spacing: 0.1em; text-transform: uppercase; font-family: 'Geist Mono', monospace; margin-bottom: 10px; }
+.reserve-chips { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.reserve-chip { padding: 12px 6px; text-align: center; border-radius: 11px; border: 1px solid rgba(10,17,40,0.12); font-size: 13px; color: var(--ink-soft); cursor: pointer; transition: all .2s var(--ease); user-select: none; }
+.reserve-chip .day-name { font-size: 11px; color: #9aa; }
+.reserve-chip.active { background: var(--navy-800); color: #fff; border-color: var(--navy-800); }
+.reserve-chip.active .day-name { color: var(--gold-bright); }
+.reserve-chip:hover:not(.active) { border-color: rgba(10,17,40,0.3); background: rgba(10,17,40,0.04); }
+.reserve-times { display: flex; flex-wrap: wrap; gap: 8px; }
+.reserve-time { padding: 9px 16px; border-radius: 9px; font-size: 13.5px; border: 1px solid rgba(10,17,40,0.12); color: var(--ink-soft); cursor: pointer; transition: all .2s var(--ease); }
+.reserve-time.active { background: rgba(194,162,74,0.14); border-color: var(--gold); color: var(--gold-deep); font-weight: 600; }
+.reserve-time:hover:not(.active) { border-color: rgba(10,17,40,0.3); }
+.reserve-covers { display: flex; align-items: center; gap: 14px; }
+.reserve-covers-n { font-size: 24px; font-weight: 700; color: var(--ink); min-width: 36px; text-align: center; }
+.reserve-btn { width: 34px; height: 34px; border-radius: 50%; border: 1px solid rgba(10,17,40,0.15); background: transparent; cursor: pointer; font-size: 18px; color: var(--ink); display: grid; place-items: center; font-family: inherit; transition: all .2s; }
+.reserve-btn:hover { background: var(--ink); color: #fff; }
+.reserve-submit { width: 100%; justify-content: center; margin-top: 24px; }
+.reserve-note { font-size: 12px; color: var(--ink-soft); text-align: center; margin-top: 12px; }
+.reserve-success { display: none; flex-direction: column; align-items: center; text-align: center; gap: 14px; padding: 20px; }
+.reserve-success.show { display: flex; }
+.reserve-success-ic { width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(140deg, var(--gold-bright), var(--gold-deep)); color: #15100A; display: grid; place-items: center; box-shadow: 0 6px 20px rgba(194,162,74,0.4); }
+.reserve-success-ic svg { width: 28px; height: 28px; }
+.reserve-success h4 { font-size: 20px; color: var(--ink); }
+.reserve-success p { font-size: 14px; color: var(--ink-soft); max-width: 32ch; }
+
+/* ============================================================
+   TEAM / CHEF
+   ============================================================ */
+.team { background: linear-gradient(180deg, var(--navy-800), var(--navy-900)); }
+.team-grid { margin-top: 56px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.team-card {
+  border-radius: var(--r-xl); overflow: hidden;
+  background: var(--glass-bg); border: 1px solid var(--glass-bd);
+  backdrop-filter: blur(var(--glass-blur));
+  transition: transform .4s var(--ease), border-color .4s var(--ease);
+}
+.team-card:hover { transform: translateY(-6px); border-color: rgba(194,162,74,0.35); }
+.team-photo {
+  aspect-ratio: 3/4;
+  background: linear-gradient(145deg, rgba(194,162,74,0.1), rgba(10,17,40,0.5));
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
+  position: relative; overflow: hidden;
+}
+.team-photo-stripes {
+  position: absolute; inset: 0; opacity: 0.05;
+  background: repeating-linear-gradient(-30deg, var(--gold) 0, var(--gold) 1px, transparent 1px, transparent 18px);
+}
+.team-photo-initial { position: relative; width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(140deg, var(--gold-bright), var(--gold-deep)); color: #15100A; display: grid; place-items: center; font-size: 32px; font-weight: 700; }
+.team-photo-role { position: relative; font-family: 'Geist Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); opacity: 0.6; }
+.team-body { padding: 24px; }
+.team-name { font-size: 19px; font-weight: 600; }
+.team-role { font-size: 13px; color: var(--gold); font-family: 'Geist Mono', monospace; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 4px; }
+.team-bio { font-size: 14px; color: var(--cream-soft); margin-top: 12px; line-height: 1.65; }
+
+/* ============================================================
+   GALLERY / AMBIANCE
+   ============================================================ */
+.gallery { background: var(--navy-900); }
+.gallery-grid { margin-top: 56px; display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: auto auto; gap: 16px; }
+.gallery-item {
+  border-radius: var(--r-lg); overflow: hidden;
+  border: 1px solid var(--line-soft); position: relative;
+  background: linear-gradient(145deg, rgba(194,162,74,0.08), rgba(10,17,40,0.6));
+  display: flex; align-items: center; justify-content: center;
+  min-height: 200px; cursor: pointer;
+  transition: transform .4s var(--ease), border-color .4s var(--ease);
+}
+.gallery-item:hover { transform: scale(1.02); border-color: rgba(194,162,74,0.35); }
+.gallery-item:first-child { grid-row: span 2; min-height: 420px; }
+.gallery-item-inner { text-align: center; padding: 24px; position: relative; z-index: 1; }
+.gallery-stripes { position: absolute; inset: 0; opacity: 0.05; background: repeating-linear-gradient(60deg, var(--gold) 0, var(--gold) 1px, transparent 1px, transparent 22px); }
+.gallery-emoji { font-size: 40px; margin-bottom: 8px; }
+.gallery-label { font-family: 'Geist Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); opacity: 0.5; }
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+.contact { background: linear-gradient(180deg, var(--navy-800), var(--navy-900)); }
+.contact__layout { margin-top: 56px; display: grid; grid-template-columns: 1fr 1.05fr; gap: 56px; align-items: start; }
+.contact__points { margin-top: 32px; display: grid; gap: 18px; }
+.contact__point { display: flex; gap: 14px; align-items: flex-start; }
+.contact__point .ic { width: 40px; height: 40px; border-radius: 11px; display: grid; place-items: center; background: rgba(194,162,74,0.1); border: 1px solid rgba(194,162,74,0.25); color: var(--gold-bright); flex: none; }
+.contact__point .ic svg { width: 19px; height: 19px; }
+.contact__point .t { font-weight: 600; font-size: 15px; }
+.contact__point .d { font-size: 13.5px; color: var(--cream-soft); }
+
+.form-card {
+  padding: 34px; border-radius: var(--r-xl);
+  background: var(--glass-bg); border: 1px solid var(--glass-bd);
+  backdrop-filter: blur(var(--glass-blur)); box-shadow: var(--shadow-soft);
+}
+.field { margin-bottom: 20px; }
+.field label { display: block; font-size: 13px; font-weight: 500; color: var(--cream-soft); margin-bottom: 8px; }
+.field label .req { color: var(--gold); }
+.field input, .field textarea, .field select {
+  width: 100%; padding: 14px 16px; border-radius: var(--r-sm);
+  background: rgba(0,0,0,0.25); border: 1px solid var(--glass-bd); color: var(--cream);
+  font-family: inherit; font-size: 15px; transition: border-color .25s var(--ease), background .25s var(--ease), box-shadow .25s var(--ease);
+  -webkit-appearance: none;
+}
+.field select option { background: var(--navy-700); color: var(--cream); }
+.field input::placeholder, .field textarea::placeholder { color: var(--cream-faint); }
+.field input:focus, .field textarea:focus, .field select:focus { outline: none; border-color: var(--gold); background: rgba(0,0,0,0.35); box-shadow: 0 0 0 4px rgba(194,162,74,0.12); }
+.field textarea { resize: vertical; min-height: 120px; }
+.field.invalid input, .field.invalid textarea, .field.invalid select { border-color: #E0726A; }
+.field__err { font-size: 12.5px; color: #E0726A; margin-top: 7px; display: none; }
+.field.invalid .field__err { display: block; }
+.form-card .btn { width: 100%; justify-content: center; margin-top: 6px; }
+.form-note { font-size: 12px; color: var(--cream-faint); text-align: center; margin-top: 16px; }
+.form-success { display: none; flex-direction: column; align-items: center; text-align: center; gap: 14px; padding: 30px 10px; }
+.form-success.show { display: flex; }
+.form-success__ic { width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center; background: linear-gradient(140deg, var(--gold-bright), var(--gold-deep)); color: #15100A; box-shadow: var(--shadow-glow); }
+.form-success__ic svg { width: 30px; height: 30px; }
+.form-success h3 { font-size: 22px; }
+.form-success p { color: var(--cream-soft); font-size: 14.5px; max-width: 36ch; }
+
+/* ============================================================
+   SECTION HEADINGS (shared)
+   ============================================================ */
+.sec-head { max-width: 720px; }
+.sec-head.center { margin: 0 auto; text-align: center; }
+.sec-head h2 { font-size: clamp(30px, 4.4vw, 52px); margin-top: 18px; }
+.sec-head p { margin-top: 20px; }
+.sec-head.center .eyebrow::before { display: none; }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer { background: var(--navy-900); border-top: 1px solid var(--line-soft); padding: 64px 0 32px; }
+.footer__top { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 32px; padding-bottom: 48px; border-bottom: 1px solid var(--line-soft); }
+.footer__brandcol p { color: var(--cream-soft); font-size: 14px; margin-top: 18px; max-width: 34ch; }
+.footer__social { display: flex; gap: 10px; margin-top: 24px; }
+.footer__social a { width: 38px; height: 38px; border-radius: 10px; display: grid; place-items: center; background: rgba(255,255,255,0.04); border: 1px solid var(--glass-bd); color: var(--cream-soft); transition: all .3s var(--ease); }
+.footer__social a:hover { color: var(--gold-bright); border-color: rgba(194,162,74,0.4); transform: translateY(-3px); }
+.footer__social svg { width: 18px; height: 18px; }
+.footer__col h4 { font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--cream-faint); margin-bottom: 18px; }
+.footer__col a { display: block; font-size: 14px; color: var(--cream-soft); padding: 6px 0; transition: color .25s var(--ease); }
+.footer__col a:hover { color: var(--gold-bright); }
+.footer__bottom { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 28px; flex-wrap: wrap; }
+.footer__bottom p { font-size: 13px; color: var(--cream-faint); }
+.footer__legal { display: flex; gap: 22px; }
+.footer__legal a { font-size: 13px; color: var(--cream-faint); transition: color .25s var(--ease); }
+.footer__legal a:hover { color: var(--cream-soft); }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 1024px) {
+  .about__layout { grid-template-columns: 1fr; gap: 40px; }
+  .about__visual { aspect-ratio: 16/9; max-height: 320px; }
+  .reservation__layout { grid-template-columns: 1fr; gap: 40px; }
+  .menu-grid { grid-template-columns: repeat(2, 1fr); }
+  .reviews-grid { grid-template-columns: repeat(2, 1fr); }
+  .team-grid { grid-template-columns: repeat(2, 1fr); }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .gallery-item:first-child { grid-row: span 1; min-height: 200px; }
+  .contact__layout { grid-template-columns: 1fr; }
+  .footer__top { grid-template-columns: 1fr 1fr 1fr; }
+}
+@media (max-width: 760px) {
+  .wrap { padding: 0 22px; }
+  .menu-grid { grid-template-columns: 1fr; }
+  .reviews-grid { grid-template-columns: 1fr; }
+  .team-grid { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: 1fr; }
+  .gallery-item:first-child { grid-row: span 1; }
+  .footer__top { grid-template-columns: 1fr 1fr; }
+  .hero__plate { width: 220px; height: 220px; right: 4%; }
+  .about__values { grid-template-columns: 1fr; }
+  .reserve-chips { grid-template-columns: repeat(4, 1fr); }
+}
+@media (max-width: 480px) {
+  .reserve-chips { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================== MOBILE NAV ============================== -->
+<div class="mobile-nav" id="mobileNav" role="dialog" aria-label="Navigation mobile">
+  <a href="#accueil" class="mobile-nav-link">Accueil</a>
+  <a href="#histoire" class="mobile-nav-link">Notre Histoire</a>
+  <a href="#menu" class="mobile-nav-link">La Carte</a>
+  <a href="#reservation" class="mobile-nav-link">Réserver</a>
+  <a href="#equipe" class="mobile-nav-link">L'Équipe</a>
+  <a href="#contact" class="mobile-nav-link">Contact</a>
+  <a class="btn btn-primary" href="#reservation" style="margin-top: 8px">Réserver une table <i data-lucide="arrow-right"></i></a>
+</div>
+
+<!-- ============================== HEADER ============================== -->
+<header class="header" id="top">
+  <div class="wrap header__inner">
+    <a class="brand" href="#accueil" aria-label="Le Saisonnier — accueil">
+      <span class="brand__mark">LS</span>
+      <span>
+        <span class="brand__name">Le Saisonnier<em>.</em></span>
+        <span class="brand__sub">Cuisine française · Le Marais</span>
+      </span>
+    </a>
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="#accueil" data-spy>Accueil</a>
+      <a href="#histoire" data-spy>Notre Histoire</a>
+      <a href="#menu" data-spy>La Carte</a>
+      <a href="#reservation" data-spy>Réserver</a>
+      <a href="#equipe" data-spy>L'Équipe</a>
+      <a href="#contact" data-spy>Contact</a>
+    </nav>
+    <div class="header__cta">
+      <a class="btn btn-primary" href="#reservation">Réserver une table <i data-lucide="calendar-check"></i></a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Ouvrir le menu" aria-expanded="false">
+        <i data-lucide="menu"></i>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============================== HERO ============================== -->
+<section class="hero noise" id="accueil" aria-labelledby="hero-title">
+  <div class="hero__bg">
+    <div class="hero__bg-art">
+      <div class="hero__bg-art-inner"></div>
+    </div>
+  </div>
+  <div class="hero__plate" aria-hidden="true">
+    <div class="hero__plate-lines">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <span class="hero__plate-label">Plat signature</span>
+  </div>
+  <div class="hero__overlay"></div>
+  <div class="hero__glow"></div>
+  <div class="wrap hero__inner">
+    <div class="hero__content">
+      <span class="hero__tagline" data-reveal>Le Marais · Paris 3<sup>e</sup> · Ouvert depuis 2019</span>
+      <h1 id="hero-title" data-reveal data-delay="1">La Saison<br /><em>dans votre assiette.</em></h1>
+      <p class="hero__sub" data-reveal data-delay="2">Une cuisine française contemporaine qui célèbre les producteurs locaux, les herbes du jardin et l'instant présent. Chaque plat raconte une saison.</p>
+      <div class="hero__cta" data-reveal data-delay="3">
+        <a class="btn btn-primary" href="#reservation">Réserver une table <i data-lucide="calendar-check"></i></a>
+        <a class="link-arrow" href="#menu">Découvrir la carte <i data-lucide="arrow-up-right"></i></a>
+      </div>
+      <div class="hero__stats" data-reveal data-delay="4">
+        <div class="hero__stat">
+          <div class="n">★<span>4.9</span></div>
+          <div class="l">Note Google (340+ avis)</div>
+        </div>
+        <div class="hero__stat">
+          <div class="n">12<span>–22</span></div>
+          <div class="l">Personnes max par service</div>
+        </div>
+        <div class="hero__stat">
+          <div class="n">100<span>%</span></div>
+          <div class="l">Produits français & locaux</div>
+        </div>
+        <div class="hero__stat">
+          <div class="n"><span>depuis</span> 2019</div>
+          <div class="l">Installés au cœur du Marais</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-cue" aria-hidden="true"><span>Défiler</span><span class="line"></span></div>
+</section>
+
+<!-- ============================== ABOUT / STORY ============================== -->
+<section class="section about noise" id="histoire" aria-labelledby="about-title">
+  <div class="wrap">
+    <div class="about__layout">
+      <div class="about__visual" data-reveal>
+        <div class="about__visual-stripes"></div>
+        <div class="about__visual-content">
+          <div class="about__visual-icon">🌿</div>
+          <div class="about__visual-label">Photo — Salle du restaurant</div>
+          <div class="about__visual-sublabel">Le Saisonnier · Paris Marais</div>
+        </div>
+        <div class="about__badge">
+          <div class="about__badge-n">2019</div>
+          <div class="about__badge-l">Fondé avec passion</div>
+        </div>
+      </div>
+
+      <div class="about__text" data-reveal data-delay="1">
+        <span class="eyebrow">Notre Histoire</span>
+        <h2 id="about-title">Un restaurant né de la passion du terroir.</h2>
+        <p>Le Saisonnier est né d'une conviction simple : la meilleure cuisine française est celle qui écoute la terre. Fondé en 2019 par Camille Durand et Théo Marchetti dans un bel espace de pierre du Marais, le restaurant accueille jusqu'à 22 convives dans un cadre intimiste où chaque détail est pensé pour magnifier votre expérience.</p>
+        <p>Notre carte change avec les saisons — parfois même avec les semaines — selon les arrivages de nos maraîchers, pêcheurs et éleveurs partenaires. Vous ne mangerez jamais deux fois le même menu.</p>
+        <div class="about__values">
+          <div class="about__value" data-reveal data-delay="2">
+            <div class="about__value-icon"><i data-lucide="leaf"></i></div>
+            <h4>Circuits courts</h4>
+            <p>90% de nos produits viennent d'Île-de-France et du bassin parisien.</p>
+          </div>
+          <div class="about__value" data-reveal data-delay="3">
+            <div class="about__value-icon"><i data-lucide="sun"></i></div>
+            <h4>Cuisine de saison</h4>
+            <p>La carte évolue chaque semaine selon les arrivages du marché.</p>
+          </div>
+          <div class="about__value" data-reveal data-delay="2">
+            <div class="about__value-icon"><i data-lucide="heart"></i></div>
+            <h4>Passion & sincérité</h4>
+            <p>Une cuisine honnête, généreuse et sans artifice inutile.</p>
+          </div>
+          <div class="about__value" data-reveal data-delay="3">
+            <div class="about__value-icon"><i data-lucide="recycle"></i></div>
+            <h4>Zéro gaspillage</h4>
+            <p>Toute la plante, tout l'animal — rien n'est perdu, tout est sublimé.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== MENU ============================== -->
+<section class="section menu" id="menu" aria-labelledby="menu-title">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="eyebrow">La Carte</span>
+      <h2 id="menu-title">Ce qui est bon, en ce moment.</h2>
+      <p class="lede" style="color:var(--ink-soft)">Une sélection de nos créations de saison — la carte change régulièrement selon les arrivages. Prix indicatifs à la carte.</p>
+    </div>
+
+    <div class="menu-tabs" role="tablist" data-reveal data-delay="1">
+      <button class="menu-tab active" role="tab" aria-selected="true" data-tab="entrees">Entrées</button>
+      <button class="menu-tab" role="tab" aria-selected="false" data-tab="plats">Plats</button>
+      <button class="menu-tab" role="tab" aria-selected="false" data-tab="desserts">Desserts</button>
+      <button class="menu-tab" role="tab" aria-selected="false" data-tab="menus">Menus</button>
+    </div>
+
+    <!-- ENTREES -->
+    <div class="menu-panel active" id="panel-entrees" role="tabpanel">
+      <div class="menu-grid">
+        <article class="dish-card" data-reveal>
+          <div class="dish-photo">
+            <div class="dish-photo-stripes"></div>
+            <div class="dish-photo-label"><span class="dish-photo-emoji">🥗</span>Photo · Velouté de saison</div>
+            <span class="dish-tag">Signature</span>
+          </div>
+          <div class="dish-body">
+            <div class="dish-name">Velouté de butternut rôtie</div>
+            <div class="dish-desc">Crème acidulée, noisettes torréfiées, huile de potimarron, jeunes pousses de cresson.</div>
+            <div class="dish-foot">
+              <div class="dish-price">14€<span> /pers.</span></div>
+              <div class="dish-allergens">🥜 MK</div>
+            </div>
+          </div>
+        </article>
+        <article class="dish-card" data-reveal data-delay="1">
+          <div class="dish-photo">
+            <div class="dish-photo-stripes"></div>
+            <div class="dish-photo-label"><span class="dish-photo-emoji">🐟</span>Photo · Tartare de bar</div>
+          </div>
+          <div class="dish-body">
+            <div class="dish-name">Tartare de bar de ligne</div>
+            <div class="dish-desc">Citron vert, avocat, concombre mariné, yuzu, fleurs de bourrache.</div>
+            <div class="dish-foot">
+              <div class="dish-price">18€<span> /pers.</span></div>
+              <div class="dish-allergens">🐟 G</div>
+            </div>
+          </div>
+        </article>
+        <article class="dish-card" data-reveal data-delay="2">
+          <div class="dish-photo">
+            <div class="dish-photo-stripes"></div>
+            <div class="dish-photo-label"><span class="dish-photo-emoji">🧅</span>Photo · Tarte à l'oignon</div>
+            <span class="dish-tag">Végétarien</span>
+          </div>
+          <div class="dish-body">
+            <div class="dish-name">Tarte fine oignons confits</div>
+            <div class="dish-desc">Pâte feuilletée pur beurre, oignons Roscoff confits 3h, herbes fraîches.</div>
+            <div class="dish-foot">
+              <div class="dish-price">16€<span> /pers.</span></div>
+              <div class="dish-allergens">🌾 MK</div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- PLATS -->
+    <div class="menu-panel" id="panel-plats" role="tabpanel">
+      <div class="menu-grid">
+        <article class="dish-card" data-reveal>
+          <div class="dish-photo">
+            <div class="dish-photo-stripes"></div>
+            <div class="dish-photo-label"><span class="dish-photo-emoji">🥩</span>Photo · Entrecôte</div>
+            <span class="dish-tag">Best-seller</span>
+          </div>
+          <div class="dish-body">
+            <div class="dish-name">Entrecôte Aubrac maturée 40j</div>
+            <div class="dish-desc">Purée de panais, jus corsé au thym citron, échalotes rôties, gremolata.</div>
+            <div class="dish-foot">
+              <div class="dish-price">36€<span> /pers.</span></div>
+              <div class="dish-allergens">🥛</div>
+            </div>
+          </div>
+        </article>
+        <article class="dish-card" data-reveal data-delay="1">
+          <div class="dish-photo">
+            <div class="dish-photo-stripes"></div>
+            <div class="dish-photo-label"><span class="dish-photo-emoji">🐟</span>Photo · Dos de cabillaud</div>
+          </div>
+          <div class="dish-body">
+            <div class="dish-name">Dos de cabillaud de Bretagne</div>
+            <div class="dish-desc">Chorizo ibérique, pommes de terre rattes, bouillon de palourdes, cerfeuil.</div>
+            <div class="dish-foot">
+              <div class="dish-price">32€<span> /pers.</span></div>
+              <div class="dish-allergens">🐟 🥛</div>
+            </div>
+          </div>
+        </article>
+        <article class="dish-card" data-reveal data-delay="2">
+          <div class="dish-photo">
+            <div class="dish-photo-stripes"></div>
+            <div class="dish-photo-label"><span class="dish-photo-emoji">🍄</span>Photo · Risotto</div>
+            <span class="dish-tag">Végétarien</span>
+          </div>
+          <div class="dish-body">
+            <div class="dish-name">Risotto de châtaignes & champignons</div>
+            <div class="dish-desc">Cepes, trompettes, parmesan 36 mois, truffe noire râpée en salle.</div>
+            <div class="dish-foot">
+              <div class="dish-price">28€<span> /pers.</span></div>
+              <div class="dish-allergens">🥛 🌾</div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- DESSERTS -->
+    <div class="menu-panel" id="panel-desserts" role="tabpanel">
+      <div class="menu-grid">
+        <article class="dish-card" data-reveal>
+          <div class="dish-photo">
+            <div class="dish-photo-stripes"></div>
+            <div class="dish-photo-label"><span class="dish-photo-emoji">🍮</span>Photo · Crème brûlée</div>
+            <span class="dish-tag">Signature</span>
+          </div>
+          <div class="dish-body">
+            <div class="dish-name">Crème brûlée à la vanille de Madagascar</div>
+            <div class="dish-desc">Caramel à la fleur de sel, sablé breton, compote de poires Williams.</div>
+            <div class="dish-foot">
+              <div class="dish-price">12€<span> /pers.</span></div>
+              <div class="dish-allergens">🥛 🌾 🥚</div>
+            </div>
+          </div>
+        </article>
+        <article class="dish-card" data-reveal data-delay="1">
+          <div class="dish-photo">
+            <div class="dish-photo-stripes"></div>
+            <div class="dish-photo-label"><span class="dish-photo-emoji">🍫</span>Photo · Fondant chocolat</div>
+          </div>
+          <div class="dish-body">
+            <div class="dish-name">Fondant chocolat Araguani 72%</div>
+            <div class="dish-desc">Glace au lait de brebis, pralin maison, tuile dentelle au sésame noir.</div>
+            <div class="dish-foot">
+              <div class="dish-price">13€<span> /pers.</span></div>
+              <div class="dish-allergens">🥛 🌾 🥚</div>
+            </div>
+          </div>
+        </article>
+        <article class="dish-card" data-reveal data-delay="2">
+          <div class="dish-photo">
+            <div class="dish-photo-stripes"></div>
+            <div class="dish-photo-label"><span class="dish-photo-emoji">🍓</span>Photo · Tarte aux fruits</div>
+            <span class="dish-tag">Végétalien</span>
+          </div>
+          <div class="dish-body">
+            <div class="dish-name">Tarte sablée aux fruits rouges</div>
+            <div class="dish-desc">Crème d'amande vegan, fruits rouges de saison, gel hibiscus, sorbet citron.</div>
+            <div class="dish-foot">
+              <div class="dish-price">11€<span> /pers.</span></div>
+              <div class="dish-allergens">🌾 🥜</div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- MENUS -->
+    <div class="menu-panel" id="panel-menus" role="tabpanel">
+      <div class="menu-grid">
+        <article class="dish-card" data-reveal>
+          <div class="dish-photo" style="background: linear-gradient(135deg, rgba(194,162,74,0.12), rgba(10,17,40,0.05));">
+            <div class="dish-photo-stripes"></div>
+            <div class="dish-photo-label"><span class="dish-photo-emoji">🌿</span>Menu Déjeuner</div>
+          </div>
+          <div class="dish-body">
+            <div class="dish-name">Menu Déjeuner</div>
+            <div class="dish-desc">Entrée + plat <strong>ou</strong> plat + dessert. Formule du marché, renouvelée chaque semaine. Disponible uniquement le midi du mardi au vendredi.</div>
+            <div class="dish-foot">
+              <div class="dish-price">29€<span> /pers.</span></div>
+              <div class="dish-allergens">Midi · Mar–Ven</div>
+            </div>
+          </div>
+        </article>
+        <article class="dish-card" data-reveal data-delay="1">
+          <div class="dish-photo" style="background: linear-gradient(135deg, rgba(194,162,74,0.18), rgba(10,17,40,0.05));">
+            <div class="dish-photo-stripes"></div>
+            <div class="dish-photo-label"><span class="dish-photo-emoji">🕯️</span>Menu Dîner Découverte</div>
+            <span class="dish-tag">Best-seller</span>
+          </div>
+          <div class="dish-body">
+            <div class="dish-name">Menu Dîner Découverte</div>
+            <div class="dish-desc">Entrée + plat + dessert au choix dans notre carte du moment. Accord mets & vins naturels en option (+28€).</div>
+            <div class="dish-foot">
+              <div class="dish-price">55€<span> /pers.</span></div>
+              <div class="dish-allergens">Dîner · Mar–Sam</div>
+            </div>
+          </div>
+        </article>
+        <article class="dish-card" data-reveal data-delay="2">
+          <div class="dish-photo" style="background: linear-gradient(135deg, rgba(194,162,74,0.25), rgba(10,17,40,0.05));">
+            <div class="dish-photo-stripes"></div>
+            <div class="dish-photo-label"><span class="dish-photo-emoji">⭐</span>Menu Prestige</div>
+            <span class="dish-tag">Signature</span>
+          </div>
+          <div class="dish-body">
+            <div class="dish-name">Menu Prestige "Le Saisonnier"</div>
+            <div class="dish-desc">6 plats signatures, fromages affinés, dessert maison. Accord vins inclus (12 verres sélectionnés par notre sommelier). Sur réservation 48h à l'avance.</div>
+            <div class="dish-foot">
+              <div class="dish-price">110€<span> /pers.</span></div>
+              <div class="dish-allergens">Dîner · Ven–Sam</div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== AVIS / TESTIMONIALS ============================== -->
+<section class="section reviews noise" id="avis" aria-labelledby="reviews-title">
+  <div class="wrap">
+    <div class="sec-head center" data-reveal>
+      <span class="eyebrow" style="justify-content:center">Ils nous font confiance</span>
+      <h2 id="reviews-title">Ce que disent nos convives.</h2>
+      <p class="lede" style="margin-inline:auto">Des expériences authentiques partagées par ceux qui ont eu la joie de partager notre table.</p>
+    </div>
+    <div class="reviews-grid">
+      <article class="review-card" data-reveal>
+        <div class="review-stars">
+          <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+        </div>
+        <p class="review-text">"Une expérience gastronomique absolument sublime. Le velouté de butternut était d'une finesse rare, et le service, attentionné sans être intrusif. On revient dès la semaine prochaine."</p>
+        <div class="review-author">
+          <div class="review-avatar">S</div>
+          <div>
+            <div class="review-name">Sophie M.</div>
+            <div class="review-meta">Paris 11e · Octobre 2025</div>
+            <div class="review-source"><i data-lucide="map-pin" style="width:12px;height:12px"></i> Via Google</div>
+          </div>
+        </div>
+      </article>
+      <article class="review-card" data-reveal data-delay="1">
+        <div class="review-stars">
+          <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+        </div>
+        <p class="review-text">"Le cadre du Marais, la lumière tamisée, les produits du terroir... Le Saisonnier nous a offert une soirée mémorable. L'accord mets et vins naturels était particulièrement réussi."</p>
+        <div class="review-author">
+          <div class="review-avatar">T</div>
+          <div>
+            <div class="review-name">Thomas & Julie D.</div>
+            <div class="review-meta">Bordeaux · Novembre 2025</div>
+            <div class="review-source"><i data-lucide="map-pin" style="width:12px;height:12px"></i> Via Google</div>
+          </div>
+        </div>
+      </article>
+      <article class="review-card" data-reveal data-delay="2">
+        <div class="review-stars">
+          <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+        </div>
+        <p class="review-text">"Notre anniversaire de mariage au Saisonnier — inoubliable. Chef Théo Marchetti est venu en personne à notre table expliquer le plat. Ces petites attentions font toute la différence."</p>
+        <div class="review-author">
+          <div class="review-avatar">M</div>
+          <div>
+            <div class="review-name">Marie-Claire R.</div>
+            <div class="review-meta">Paris 16e · Décembre 2025</div>
+            <div class="review-source"><i data-lucide="map-pin" style="width:12px;height:12px"></i> Via Google</div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== RESERVATION ============================== -->
+<section class="section reservation" id="reservation" aria-labelledby="reservation-title">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="eyebrow">Réservation</span>
+      <h2 id="reservation-title">Choisissez votre moment.</h2>
+    </div>
+    <div class="reservation__layout">
+      <div class="reservation__info" data-reveal data-delay="1">
+        <h3>Un dîner d'exception, une table pour vous.</h3>
+        <p>Le Saisonnier accueille jusqu'à 22 convives par service dans une salle intimiste. Nous vous recommandons de réserver 5 à 7 jours à l'avance, surtout le week-end.</p>
+        <div class="reservation__details">
+          <div class="reservation__detail">
+            <div class="reservation__detail-ic"><i data-lucide="clock"></i></div>
+            <div>
+              <div class="reservation__detail-t">Horaires</div>
+              <div class="reservation__detail-d">Déjeuner : 12h00–14h00 (Mer–Ven)<br>Dîner : 19h00–22h30 (Mar–Sam)</div>
+            </div>
+          </div>
+          <div class="reservation__detail">
+            <div class="reservation__detail-ic"><i data-lucide="map-pin"></i></div>
+            <div>
+              <div class="reservation__detail-t">Adresse</div>
+              <div class="reservation__detail-d">17 rue de Bretagne, 75003 Paris<br>Métro : Arts et Métiers · Temple</div>
+            </div>
+          </div>
+          <div class="reservation__detail">
+            <div class="reservation__detail-ic"><i data-lucide="phone"></i></div>
+            <div>
+              <div class="reservation__detail-t">Téléphone</div>
+              <div class="reservation__detail-d">+33 (0)1 42 77 88 03<br>Du mardi au samedi · 10h–22h</div>
+            </div>
+          </div>
+          <div class="reservation__detail">
+            <div class="reservation__detail-ic"><i data-lucide="info"></i></div>
+            <div>
+              <div class="reservation__detail-t">À noter</div>
+              <div class="reservation__detail-d">Fermé lundi & dimanche. Carte change chaque semaine. Allergies : merci de nous prévenir à la réservation.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reserve-widget" data-reveal data-delay="2">
+        <div id="reserveForm">
+          <h4><i data-lucide="calendar-check"></i> Réserver une table</h4>
+
+          <div class="reserve-step">
+            <div class="reserve-step-label">Choisir une date</div>
+            <div class="reserve-chips" id="reserveChips">
+              <div class="reserve-chip" data-date="0"><div class="day-name">Mer</div><div>11</div></div>
+              <div class="reserve-chip active" data-date="1"><div class="day-name">Jeu</div><div>12</div></div>
+              <div class="reserve-chip" data-date="2"><div class="day-name">Ven</div><div>13</div></div>
+              <div class="reserve-chip" data-date="3"><div class="day-name">Sam</div><div>14</div></div>
+            </div>
+          </div>
+
+          <div class="reserve-step">
+            <div class="reserve-step-label">Choisir un horaire</div>
+            <div class="reserve-times" id="reserveTimes">
+              <span class="reserve-time">19:00</span>
+              <span class="reserve-time active">19:30</span>
+              <span class="reserve-time">20:00</span>
+              <span class="reserve-time">20:30</span>
+              <span class="reserve-time">21:00</span>
+            </div>
+          </div>
+
+          <div class="reserve-step">
+            <div class="reserve-step-label">Nombre de couverts</div>
+            <div class="reserve-covers">
+              <button class="reserve-btn" id="coversDown" aria-label="Moins">−</button>
+              <div class="reserve-covers-n" id="coversCount">2</div>
+              <button class="reserve-btn" id="coversUp" aria-label="Plus">+</button>
+            </div>
+          </div>
+
+          <div class="reserve-step">
+            <div class="reserve-step-label">Vos coordonnées</div>
+            <div style="display:grid;gap:10px">
+              <input type="text" placeholder="Prénom Nom" id="reserveName" style="padding:12px 14px;border-radius:9px;border:1px solid rgba(10,17,40,0.15);font-family:inherit;font-size:14px;color:var(--ink);background:#fff" />
+              <input type="email" placeholder="email@exemple.fr" id="reserveEmail" style="padding:12px 14px;border-radius:9px;border:1px solid rgba(10,17,40,0.15);font-family:inherit;font-size:14px;color:var(--ink);background:#fff" />
+              <input type="tel" placeholder="+33 6 xx xx xx xx" id="reservePhone" style="padding:12px 14px;border-radius:9px;border:1px solid rgba(10,17,40,0.15);font-family:inherit;font-size:14px;color:var(--ink);background:#fff" />
+            </div>
+          </div>
+
+          <button class="btn btn-primary reserve-submit" id="reserveSubmit" type="button">
+            Confirmer la réservation <i data-lucide="arrow-right"></i>
+          </button>
+          <p class="reserve-note" style="color:var(--ink-soft)">Confirmation par email sous 24h. Annulation gratuite jusqu'à 48h avant.</p>
+        </div>
+        <div class="reserve-success" id="reserveSuccess">
+          <div class="reserve-success-ic"><i data-lucide="check"></i></div>
+          <h4 style="color:var(--ink)">Demande envoyée — merci !</h4>
+          <p style="color:var(--ink-soft)">Nous vous confirmons votre table par email dans les 24 heures. À très bientôt au Saisonnier&nbsp;!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== ÉQUIPE ============================== -->
+<section class="section team noise" id="equipe" aria-labelledby="team-title">
+  <div class="wrap">
+    <div class="sec-head center" data-reveal>
+      <span class="eyebrow" style="justify-content:center">L'Équipe</span>
+      <h2 id="team-title">Les artisans de votre expérience.</h2>
+      <p class="lede" style="margin-inline:auto">Derrière chaque assiette, une équipe passionnée qui donne le meilleur d'elle-même à chaque service.</p>
+    </div>
+    <div class="team-grid">
+      <article class="team-card" data-reveal>
+        <div class="team-photo">
+          <div class="team-photo-stripes"></div>
+          <div class="team-photo-initial">T</div>
+          <div class="team-photo-role">Photo · Chef</div>
+        </div>
+        <div class="team-body">
+          <div class="team-name">Théo Marchetti</div>
+          <div class="team-role">Chef Exécutif & Co-fondateur</div>
+          <div class="team-bio">Formé chez Alain Ducasse et Pierre Hermé, Théo quitte les grandes maisons en 2019 pour créer une cuisine plus personnelle — ancrée dans le local, vibrante de saisons. Sa cuisine raconte son enfance en Ardèche.</div>
+        </div>
+      </article>
+      <article class="team-card" data-reveal data-delay="1">
+        <div class="team-photo">
+          <div class="team-photo-stripes"></div>
+          <div class="team-photo-initial">C</div>
+          <div class="team-photo-role">Photo · Directrice</div>
+        </div>
+        <div class="team-body">
+          <div class="team-name">Camille Durand</div>
+          <div class="team-role">Directrice & Sommelière</div>
+          <div class="team-bio">Ancienne du Clover de Jean-François Piège, Camille supervise la salle, les accords mets-vins naturels et l'expérience globale de chaque convive. Sa sélection de vins biologiques est renouvelée chaque saison.</div>
+        </div>
+      </article>
+      <article class="team-card" data-reveal data-delay="2">
+        <div class="team-photo">
+          <div class="team-photo-stripes"></div>
+          <div class="team-photo-initial">L</div>
+          <div class="team-photo-role">Photo · Chef Pâtissier</div>
+        </div>
+        <div class="team-body">
+          <div class="team-name">Lola Ferrand</div>
+          <div class="team-role">Chef Pâtissière</div>
+          <div class="team-bio">Passée par Ladurée et Yannick Alléno, Lola signe des desserts qui prolongent le fil conducteur de chaque saison — avec une passion pour les agrumes, les herbes et les textures qui surprennent.</div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== GALERIE ============================== -->
+<section class="section gallery noise" id="galerie" aria-labelledby="gallery-title">
+  <div class="wrap">
+    <div class="sec-head center" data-reveal>
+      <span class="eyebrow" style="justify-content:center">L'Ambiance</span>
+      <h2 id="gallery-title">Bienvenue dans notre maison.</h2>
+      <p class="lede" style="margin-inline:auto">Un espace de pierre et de bois, baigné d'une lumière dorée. Intimiste le soir, lumineux le midi.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item" data-reveal>
+        <div class="gallery-stripes"></div>
+        <div class="gallery-item-inner">
+          <div class="gallery-emoji">🕯️</div>
+          <div class="gallery-label">Salle principale — vue d'ensemble</div>
+        </div>
+      </div>
+      <div class="gallery-item" data-reveal data-delay="1">
+        <div class="gallery-stripes"></div>
+        <div class="gallery-item-inner">
+          <div class="gallery-emoji">🍽️</div>
+          <div class="gallery-label">Table dressée — service du soir</div>
+        </div>
+      </div>
+      <div class="gallery-item" data-reveal data-delay="2">
+        <div class="gallery-stripes"></div>
+        <div class="gallery-item-inner">
+          <div class="gallery-emoji">👨‍🍳</div>
+          <div class="gallery-label">En cuisine — chef Théo Marchetti</div>
+        </div>
+      </div>
+      <div class="gallery-item" data-reveal data-delay="1">
+        <div class="gallery-stripes"></div>
+        <div class="gallery-item-inner">
+          <div class="gallery-emoji">🥂</div>
+          <div class="gallery-label">Cave à vins naturels — sélection Camille</div>
+        </div>
+      </div>
+      <div class="gallery-item" data-reveal data-delay="2">
+        <div class="gallery-stripes"></div>
+        <div class="gallery-item-inner">
+          <div class="gallery-emoji">🌿</div>
+          <div class="gallery-label">Terrasse intérieure — lumière naturelle</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== CONTACT ============================== -->
+<section class="section contact noise" id="contact" aria-labelledby="contact-title">
+  <div class="wrap">
+    <div class="sec-head center" data-reveal>
+      <span class="eyebrow" style="justify-content:center">Contact</span>
+      <h2 id="contact-title">Une question ? Nous sommes là.</h2>
+      <p class="lede" style="margin-inline:auto">Pour un événement privatif, une demande spéciale ou simplement pour nous dire bonjour — nous répondons sous 24h.</p>
+    </div>
+
+    <div class="contact__layout">
+      <aside class="contact__aside" data-reveal data-delay="1">
+        <div class="contact__points">
+          <div class="contact__point">
+            <span class="ic"><i data-lucide="map-pin"></i></span>
+            <div>
+              <div class="t">17 rue de Bretagne, 75003 Paris</div>
+              <div class="d">Métro Arts et Métiers (ligne 3 & 11) · Temple</div>
+            </div>
+          </div>
+          <div class="contact__point">
+            <span class="ic"><i data-lucide="clock"></i></span>
+            <div>
+              <div class="t">Mardi–Samedi · Midi & Soir</div>
+              <div class="d">Déj. 12h–14h (mer–ven) · Dîner 19h–22h30</div>
+            </div>
+          </div>
+          <div class="contact__point">
+            <span class="ic"><i data-lucide="phone"></i></span>
+            <div>
+              <div class="t">+33 (0)1 42 77 88 03</div>
+              <div class="d">Du mardi au samedi, de 10h à 22h</div>
+            </div>
+          </div>
+          <div class="contact__point">
+            <span class="ic"><i data-lucide="mail"></i></span>
+            <div>
+              <div class="t">bonjour@le-saisonnier.fr</div>
+              <div class="d">Réponse sous 24h · Événements privatifs bienvenus</div>
+            </div>
+          </div>
+          <div class="contact__point">
+            <span class="ic"><i data-lucide="users"></i></span>
+            <div>
+              <div class="t">Privatisation & Événements</div>
+              <div class="d">Séminaires, dîners d'affaires, célébrations — capacité jusqu'à 22 personnes en exclusif.</div>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <div class="form-card" data-reveal data-delay="2">
+        <form id="contactForm" novalidate>
+          <div class="field" data-field="name">
+            <label for="f-name">Nom & prénom <span class="req">*</span></label>
+            <input id="f-name" name="name" type="text" placeholder="Ex. Sophie Martin" autocomplete="name" />
+            <div class="field__err">Merci d'indiquer votre nom (2 caractères minimum).</div>
+          </div>
+          <div class="field" data-field="email">
+            <label for="f-email">Adresse e-mail <span class="req">*</span></label>
+            <input id="f-email" name="email" type="email" placeholder="vous@exemple.fr" autocomplete="email" />
+            <div class="field__err">Merci d'indiquer une adresse e-mail valide.</div>
+          </div>
+          <div class="field" data-field="subject">
+            <label for="f-subject">Objet de votre message</label>
+            <select id="f-subject" name="subject">
+              <option value="">Sélectionner…</option>
+              <option>Réservation de groupe</option>
+              <option>Privatisation de la salle</option>
+              <option>Allergies & régimes spéciaux</option>
+              <option>Partenariat / Presse</option>
+              <option>Autre</option>
+            </select>
+          </div>
+          <div class="field" data-field="message">
+            <label for="f-message">Votre message <span class="req">*</span></label>
+            <textarea id="f-message" name="message" placeholder="Partagez-nous votre projet ou votre question…"></textarea>
+            <div class="field__err">Quelques mots supplémentaires nous aideront (10 caractères minimum).</div>
+          </div>
+          <button class="btn btn-primary" type="submit">Envoyer <i data-lucide="send"></i></button>
+          <p class="form-note">Vos données restent confidentielles et ne sont jamais partagées avec des tiers.</p>
+        </form>
+        <div class="form-success" id="formSuccess" role="status" aria-live="polite">
+          <div class="form-success__ic"><i data-lucide="check"></i></div>
+          <h3>Message envoyé — merci !</h3>
+          <p>Notre équipe vous répondra dans les 24 heures. À bientôt au Saisonnier !</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== FOOTER ============================== -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__top">
+      <div class="footer__brandcol">
+        <a class="brand" href="#accueil">
+          <span class="brand__mark">LS</span>
+          <span>
+            <span class="brand__name">Le Saisonnier<em>.</em></span>
+            <span class="brand__sub">Cuisine française · Le Marais</span>
+          </span>
+        </a>
+        <p>Restaurant gastronomique niché au cœur du Marais. Cuisine de saison, produits du terroir, expériences inoubliables.</p>
+        <div class="footer__social">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"></rect><circle cx="12" cy="12" r="4.2"></circle><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"></circle></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14.5 8.5h2.2V5.4c-.4-.05-1.6-.18-3-.18-2.97 0-5 1.86-5 5.28v2.6H5.8v3.4h2.9V24h3.6v-7.5h2.78l.44-3.4h-3.22v-2.26c0-.98.27-1.84 1.7-1.84Z"></path></svg></a>
+          <a href="#" aria-label="TripAdvisor"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="13" r="3"></circle><circle cx="17" cy="13" r="3"></circle><path d="M2 10c0-1.1.9-2 2-2h16a2 2 0 0 1 2 2M7 10v.01M17 10v.01"></path></svg></a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <h4>Restaurant</h4>
+        <a href="#histoire">Notre Histoire</a>
+        <a href="#equipe">L'Équipe</a>
+        <a href="#galerie">L'Ambiance</a>
+        <a href="#avis">Les Avis</a>
+      </div>
+      <div class="footer__col">
+        <h4>Réserver</h4>
+        <a href="#reservation">Réservation en ligne</a>
+        <a href="#menu">La Carte</a>
+        <a href="#contact">Privatisation</a>
+        <a href="tel:+33142778803">+33 1 42 77 88 03</a>
+      </div>
+      <div class="footer__col">
+        <h4>Légal</h4>
+        <a href="#">Mentions légales</a>
+        <a href="#">Politique de confidentialité</a>
+        <a href="#">Gestion des cookies</a>
+        <a href="#">Accessibilité</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© <span id="year"></span> Le Saisonnier · 17 rue de Bretagne, 75003 Paris · Tous droits réservés.</p>
+      <div class="footer__legal">
+        <a href="#">Confidentialité</a>
+        <a href="#">Conditions</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ---- lucide icons ---- */
+  function initIcons() { if (window.lucide && window.lucide.createIcons) window.lucide.createIcons(); }
+  if (document.readyState !== 'loading') initIcons();
+  else document.addEventListener('DOMContentLoaded', initIcons);
+  window.addEventListener('load', initIcons);
+
+  /* ---- year ---- */
+  var y = document.getElementById('year');
+  if (y) y.textContent = new Date().getFullYear();
+
+  /* ---- header scroll ---- */
+  var header = document.querySelector('.header');
+  function onScroll() {
+    header.classList.toggle('scrolled', window.scrollY > 24);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* ---- mobile menu ---- */
+  var menuToggle = document.getElementById('menuToggle');
+  var mobileNav = document.getElementById('mobileNav');
+  if (menuToggle && mobileNav) {
+    menuToggle.addEventListener('click', function () {
+      var open = mobileNav.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    mobileNav.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        mobileNav.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', false);
+        document.body.style.overflow = '';
+      });
+    });
+  }
+
+  /* ---- scroll reveal ---- */
+  var noAnim = /noanim/i.test(location.hash) || /noanim/i.test(location.search) ||
+    (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  var reveals = Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
+  var startVh = window.innerHeight || document.documentElement.clientHeight;
+  if (!noAnim) {
+    reveals.forEach(function (el) {
+      if (el.getBoundingClientRect().top > startVh * 0.86) el.classList.add('pre');
+    });
+  }
+  var ticking = false;
+  function revealCheck() {
+    ticking = false;
+    var vh = window.innerHeight || document.documentElement.clientHeight;
+    document.querySelectorAll('[data-reveal].pre').forEach(function (el) {
+      if (el.getBoundingClientRect().top < vh * 0.88) el.classList.remove('pre');
+    });
+  }
+  function onRevealScroll() { if (!ticking) { ticking = true; window.requestAnimationFrame(revealCheck); } }
+  window.addEventListener('scroll', onRevealScroll, { passive: true });
+  window.addEventListener('resize', onRevealScroll, { passive: true });
+  window.addEventListener('load', revealCheck);
+  revealCheck();
+
+  /* ---- nav spy ---- */
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('.nav a[data-spy]'));
+  var spySections = navLinks.map(function (a) { return document.querySelector(a.getAttribute('href')); }).filter(Boolean);
+  function spy() {
+    var pos = window.scrollY + 140;
+    var current = null;
+    spySections.forEach(function (sec) { if (sec.offsetTop <= pos) current = sec.id; });
+    navLinks.forEach(function (a) { a.classList.toggle('active', a.getAttribute('href') === '#' + current); });
+  }
+  window.addEventListener('scroll', spy, { passive: true });
+  spy();
+
+  /* ---- menu tabs ---- */
+  document.querySelectorAll('.menu-tab').forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      document.querySelectorAll('.menu-tab').forEach(function (t) { t.classList.remove('active'); t.setAttribute('aria-selected', false); });
+      document.querySelectorAll('.menu-panel').forEach(function (p) { p.classList.remove('active'); });
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected', true);
+      var panel = document.getElementById('panel-' + tab.getAttribute('data-tab'));
+      if (panel) panel.classList.add('active');
+    });
+  });
+
+  /* ---- reservation widget ---- */
+  document.querySelectorAll('.reserve-chip').forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      this.closest('.reserve-chips').querySelectorAll('.reserve-chip').forEach(function (c) { c.classList.remove('active'); });
+      this.classList.add('active');
+    });
+  });
+  document.querySelectorAll('.reserve-time').forEach(function (t) {
+    t.addEventListener('click', function () {
+      this.closest('.reserve-times').querySelectorAll('.reserve-time').forEach(function (c) { c.classList.remove('active'); });
+      this.classList.add('active');
+    });
+  });
+  var covers = 2;
+  var coversEl = document.getElementById('coversCount');
+  document.getElementById('coversDown') && document.getElementById('coversDown').addEventListener('click', function () {
+    if (covers > 1) { covers--; coversEl.textContent = covers; }
+  });
+  document.getElementById('coversUp') && document.getElementById('coversUp').addEventListener('click', function () {
+    if (covers < 12) { covers++; coversEl.textContent = covers; }
+  });
+  document.getElementById('reserveSubmit') && document.getElementById('reserveSubmit').addEventListener('click', function () {
+    var name = document.getElementById('reserveName').value.trim();
+    var email = document.getElementById('reserveEmail').value.trim();
+    if (!name || !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      if (!name) document.getElementById('reserveName').style.borderColor = '#E0726A';
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) document.getElementById('reserveEmail').style.borderColor = '#E0726A';
+      return;
+    }
+    document.getElementById('reserveForm').style.display = 'none';
+    document.getElementById('reserveSuccess').classList.add('show');
+    setTimeout(initIcons, 50);
+  });
+  ['reserveName', 'reserveEmail', 'reservePhone'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) el.addEventListener('input', function () { el.style.borderColor = ''; });
+  });
+
+  /* ---- contact form ---- */
+  var form = document.getElementById('contactForm');
+  if (form) {
+    var success = document.getElementById('formSuccess');
+    function setError(field, on) { field.classList.toggle('invalid', on); }
+    function validEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var ok = true;
+      var nameF = form.querySelector('[data-field="name"]');
+      var nameI = nameF.querySelector('input');
+      if (nameI.value.trim().length < 2) { setError(nameF, true); ok = false; } else setError(nameF, false);
+      var emailF = form.querySelector('[data-field="email"]');
+      var emailI = emailF.querySelector('input');
+      if (!validEmail(emailI.value.trim())) { setError(emailF, true); ok = false; } else setError(emailF, false);
+      var msgF = form.querySelector('[data-field="message"]');
+      var msgI = msgF.querySelector('textarea');
+      if (msgI.value.trim().length < 10) { setError(msgF, true); ok = false; } else setError(msgF, false);
+      if (!ok) {
+        var firstErr = form.querySelector('.field.invalid input, .field.invalid textarea');
+        if (firstErr) firstErr.focus();
+        return;
+      }
+      form.style.display = 'none';
+      success.classList.add('show');
+      setTimeout(initIcons, 50);
+    });
+    form.querySelectorAll('input, textarea').forEach(function (el) {
+      el.addEventListener('input', function () {
+        var f = el.closest('.field');
+        if (f && f.classList.contains('invalid')) f.classList.remove('invalid');
+      });
+    });
+  }
+})();
+</script>
+</body>
+</html>

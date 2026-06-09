@@ -1,0 +1,712 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Nos options — Flipster | Personnalisez votre site restaurant</title>
+<meta name="description" content="Options à la carte pour enrichir votre site restaurant : avis Google, menu interactif, chatbot IA, plan de salle, site multilingue et plus encore." />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="/favicon.png" />
+<link rel="apple-touch-icon" href="/favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Geist:wght@300;400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&family=Playfair+Display:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --white:#ffffff; --paper:#fbfaf7; --tan:#d2b48c; --tan-2:#e8d7b9; --tan-3:#f3ead9;
+    --blue:#1e3a5f; --blue-2:#2c5282; --blue-3:#4a7ba8; --blue-4:#e2ecf5;
+    --charcoal:#36454f; --charcoal-2:#5a6b76; --charcoal-3:#8a9aa3;
+    --bg:var(--paper); --fg:var(--charcoal); --fg-2:var(--charcoal-2); --fg-3:var(--charcoal-3);
+    --line:rgba(54,69,79,0.10); --line-2:rgba(54,69,79,0.18);
+    --surface:#ffffff; --surface-2:#ffffff;
+    --shadow-soft:0 2px 8px rgba(54,69,79,0.10); --shadow-elev:0 4px 20px rgba(54,69,79,0.14);
+    --glow-blue:none; --radius:8px; --radius-lg:12px; --radius-xl:16px;
+    --max:1240px; --pad:clamp(20px,4vw,40px);
+    --font-display:"Geist",ui-sans-serif,system-ui,sans-serif;
+    --font-body:"Inter",ui-sans-serif,system-ui,sans-serif;
+    --font-mono:"JetBrains Mono",ui-monospace,monospace;
+    --font-serif:"Instrument Serif","Times New Roman",serif;
+  }
+  *{box-sizing:border-box;} html,body{margin:0;padding:0;} html{scroll-behavior:smooth;}
+  body{background-color:var(--bg);background-image:radial-gradient(circle,rgba(54,69,79,0.13) 1px,transparent 1px);background-size:28px 28px;color:var(--fg);font-family:var(--font-body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  a{color:inherit;text-decoration:none;} button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad);}
+  h2{font-family:var(--font-display);font-size:clamp(22px,2.8vw,38px);line-height:1.02;letter-spacing:-0.03em;color:var(--fg);margin:0;font-weight:600;}
+  h3{font-family:var(--font-display);font-size:clamp(20px,2vw,26px);line-height:1.18;letter-spacing:-0.018em;color:var(--fg);margin:0;font-weight:600;}
+  p{margin:0;color:var(--fg-2);}
+  .serif{font-family:var(--font-serif);font-style:italic;font-weight:400;}
+  .lede{font-size:clamp(17px,1.35vw,19px);line-height:1.55;color:var(--fg-2);max-width:58ch;}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--fg-3);}
+  .eyebrow::before{content:"";width:18px;height:1px;background:currentColor;}
+
+  /* nav */
+  header.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 0;transition:padding .35s,background .35s,border-color .35s;}
+  header.nav.scrolled{padding:10px 0;background:var(--paper);border-bottom:1px solid var(--line);}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;}
+  .brand{display:inline-flex;align-items:center;gap:10px;color:var(--fg);}
+  .wordmark{font-family:"Playfair Display","Times New Roman",serif;font-weight:700;font-size:30px;letter-spacing:-0.005em;line-height:1;color:var(--charcoal);display:inline-flex;align-items:baseline;}
+  .wordmark .dot{color:#d97a2e;margin-left:1px;}
+  .brand small{font-family:var(--font-mono);font-size:10.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--fg-3);padding-left:10px;margin-left:4px;border-left:1px solid var(--line-2);}
+  nav.primary{display:flex;align-items:center;gap:2px;}
+  nav.primary a{padding:9px 14px;border-radius:999px;font-size:14px;color:var(--fg-2);transition:color .2s,background .2s;white-space:nowrap;}
+  nav.primary a:hover,nav.primary a.active{color:var(--fg);background:rgba(54,69,79,0.05);}
+  .nav-actions{display:flex;align-items:center;gap:8px;}
+  .nav-cta{height:38px;padding:0 16px;border-radius:6px;background:var(--charcoal);color:#fff;font-size:13.5px;font-weight:500;display:inline-flex;align-items:center;gap:8px;white-space:nowrap;border:1.5px solid var(--charcoal);transition:box-shadow .15s;}
+  .nav-cta:hover{box-shadow:3px 3px 0px rgba(54,69,79,0.35);}
+  @media(max-width:960px){nav.primary{display:none;}}
+
+  /* page */
+  .page-hero{padding:clamp(120px,18vh,180px) 0 clamp(60px,8vh,80px);text-align:center;}
+  .page-hero .eyebrow{margin-bottom:20px;display:block;}
+  section{padding:clamp(40px,6vh,60px) 0 clamp(60px,8vh,80px);}
+  .section-head{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:clamp(40px,6vh,64px);flex-wrap:wrap;}
+
+  /* services grid */
+  .services{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  @media(max-width:980px){.services{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:640px){.services{grid-template-columns:1fr;}}
+  .service{position:relative;padding:28px 26px;border-radius:var(--radius-lg);background:#fff;border:1.5px solid var(--line-2);box-shadow:var(--shadow-soft);display:flex;flex-direction:column;gap:14px;cursor:pointer;transition:border-color .2s,box-shadow .2s;}
+  .service:hover{border-color:var(--charcoal-2);box-shadow:var(--shadow-elev);}
+  .service.featured{border-color:#94b8d8;box-shadow:var(--shadow-elev);background:linear-gradient(160deg,#eaf2f9,#fff);}
+  .service-badge{display:inline-flex;align-items:center;padding:5px 13px;border-radius:999px;background:var(--blue);color:var(--paper);font-family:var(--font-mono);font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:6px;align-self:flex-start;}
+  .service-num{font-family:var(--font-mono);font-size:14px;letter-spacing:0.10em;color:var(--fg-3);font-weight:600;}
+  .pricing-sub{font-size:13px;color:var(--fg-3);margin-bottom:14px;}
+  .pricing-divider{width:100%;height:1px;background:var(--line);margin:14px 0 10px;}
+  .pricing-row{display:flex;align-items:center;gap:9px;font-size:13.5px;color:var(--fg-2);margin-bottom:5px;}
+  .pricing-row .chk{display:none;}
+  .pricing-cta{margin-top:18px;display:inline-flex;align-items:center;justify-content:center;gap:8px;height:46px;border-radius:999px;font-family:var(--font-display);font-size:14px;font-weight:500;border:1px solid var(--line);background:var(--surface-2);color:var(--fg);transition:all .25s;cursor:pointer;}
+  .pricing-cta:hover{border-color:var(--line-2);transform:translateY(-1px);box-shadow:var(--shadow-soft);}
+  .pricing-cta.primary{background:var(--fg);color:var(--paper);border-color:transparent;box-shadow:var(--shadow-soft);}
+  .pricing-cta.primary:hover{box-shadow:var(--shadow-elev);}
+
+  /* footer */
+  footer.site-foot{padding:64px 0 32px;border-top:1px solid var(--line);margin-top:60px;}
+  .footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px;padding-bottom:48px;}
+  @media(max-width:880px){.footer-top{grid-template-columns:1fr 1fr;}}
+  @media(max-width:540px){.footer-top{grid-template-columns:1fr;}}
+  .footer-col h5{font-family:var(--font-mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--fg-3);margin:0 0 16px;font-weight:500;}
+  .footer-col ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;}
+  .footer-col a{color:var(--fg-2);font-size:14.5px;transition:color .2s;}
+  .footer-col a:hover{color:var(--fg);}
+  .footer-brand p{margin-top:14px;font-size:14px;max-width:36ch;}
+  .footer-wordmark{margin-top:16px;padding-top:28px;border-top:1px solid var(--line);font-family:var(--font-display);font-weight:700;letter-spacing:-0.045em;font-size:clamp(80px,18vw,240px);line-height:0.9;text-align:center;background:linear-gradient(180deg,var(--charcoal) 25%,color-mix(in oklch,var(--blue-3) 80%,var(--charcoal)) 70%,transparent 100%);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .footer-wordmark .end{font-family:var(--font-serif);font-style:italic;font-weight:400;color:var(--tan);-webkit-text-fill-color:var(--tan);}
+  .footer-bottom{display:flex;justify-content:space-between;align-items:center;gap:24px;padding-top:24px;border-top:1px solid var(--line);font-size:12.5px;color:var(--fg-3);flex-wrap:wrap;}
+  .footer-bottom .legal{display:flex;gap:18px;}
+  .footer-bottom a:hover{color:var(--fg);}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1);}
+  .reveal.in{opacity:1;transform:none;}
+
+  /* modals */
+  .modal-overlay{position:fixed;top:0;left:0;right:0;bottom:0;z-index:99999;background:rgba(20,16,12,0.82);overflow-y:auto;display:none;}
+  .modal-overlay.open{display:block;}
+  .modal-box{background:#fbfaf7;border:1px solid rgba(54,69,79,0.12);border-radius:22px;max-width:860px;width:calc(100% - 40px);margin:60px auto;box-shadow:0 32px 80px rgba(0,0,0,0.35);overflow:hidden;}
+  .modal-header{display:flex;align-items:center;justify-content:space-between;padding:26px 32px 20px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--paper);z-index:2;border-radius:var(--radius-xl) var(--radius-xl) 0 0;}
+  .modal-header-left{display:flex;align-items:center;gap:14px;}
+  .modal-icon{font-size:1.6rem;}
+  .modal-title{font-family:var(--font-display);font-size:20px;font-weight:600;letter-spacing:-0.02em;color:var(--fg);}
+  .modal-price{font-family:var(--font-mono);font-size:13px;color:var(--fg-3);margin-top:3px;}
+  .modal-close{width:36px;height:36px;border-radius:50%;background:var(--surface-2);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:18px;color:var(--fg-2);transition:background .2s,color .2s;}
+  .modal-close:hover{background:var(--line);color:var(--fg);}
+  .modal-body{display:grid;grid-template-columns:1.1fr 1fr;gap:0;}
+  @media(max-width:680px){.modal-body{grid-template-columns:1fr;}}
+  .modal-preview{padding:28px 24px;background:linear-gradient(160deg,color-mix(in oklch,var(--blue-4) 70%,white),color-mix(in oklch,var(--tan-3) 80%,white));border-right:1px solid var(--line);display:flex;flex-direction:column;gap:14px;min-height:360px;}
+  @media(max-width:680px){.modal-preview{border-right:0;border-bottom:1px solid var(--line);min-height:auto;}}
+  .modal-preview-label{font-family:var(--font-mono);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--fg-3);}
+  .modal-info{padding:28px 32px;display:flex;flex-direction:column;gap:16px;}
+  .modal-desc{font-size:15px;color:var(--fg-2);line-height:1.65;}
+  .modal-features{list-style:none;padding:0;display:flex;flex-direction:column;gap:9px;}
+  .modal-features li{display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:var(--fg-2);}
+  .modal-features li::before{content:"✓";color:#22c55e;font-weight:700;flex-shrink:0;margin-top:1px;}
+  .modal-cta-row{margin-top:auto;padding-top:18px;border-top:1px solid var(--line);display:flex;gap:10px;flex-wrap:wrap;}
+  .modal-cta-main{flex:1;min-width:140px;height:46px;border-radius:999px;background:var(--fg);color:var(--paper);font-family:var(--font-display);font-size:14px;font-weight:500;display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;cursor:pointer;border:none;transition:box-shadow .25s;box-shadow:var(--shadow-soft);}
+  .modal-cta-main:hover{box-shadow:var(--shadow-elev);}
+  .modal-cta-sec{height:46px;padding:0 18px;border-radius:999px;background:transparent;border:1px solid var(--line);font-family:var(--font-display);font-size:14px;color:var(--fg-2);display:inline-flex;align-items:center;cursor:pointer;transition:border-color .2s;}
+  .modal-cta-sec:hover{border-color:var(--line-2);color:var(--fg);}
+  .mock-card{background:rgba(255,255,255,0.75);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.9);border-radius:12px;padding:14px 16px;box-shadow:0 4px 16px -4px rgba(54,69,79,0.12);}
+  .mock-bar{height:6px;border-radius:3px;background:var(--line);overflow:hidden;}
+  .mock-fill{height:100%;border-radius:3px;}
+  .mock-tag{display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:999px;font-family:var(--font-mono);font-size:10px;letter-spacing:0.08em;}
+  .star{color:#f59e0b;font-size:12px;}
+</style>
+</head>
+<body>
+
+<header class="nav" id="siteNav">
+  <div class="wrap nav-inner">
+    <a href="/" class="brand" aria-label="Flipster — Accueil">
+      <span class="wordmark">Flipster<span class="dot">.</span></span>
+      <small>Studio créatif</small>
+    </a>
+    <nav class="primary" aria-label="Navigation principale">
+      <a href="/notre-offre.html">Notre offre</a>
+      <a href="/nos-options.html" class="active">Nos options</a>
+      <a href="/#work">Réalisations</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="/#contact" class="nav-cta">
+        Démarrer un projet
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="page-hero">
+    <div class="wrap">
+      <span class="eyebrow reveal">Options à la carte — Personnalisez votre site</span>
+      <h2 class="reveal" style="margin-top:18px;">Ajoutez ce dont vous avez <span class="serif">besoin.</span></h2>
+      <p class="lede reveal" style="margin:18px auto 0;text-align:center;">
+        Ce sont des extras, pas des pièges. Prenez ce qui vous est vraiment utile, laissez le reste.
+      </p>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="services" id="optionsGrid" style="align-items:stretch;">
+
+        <!-- Avis Google -->
+        <article class="service reveal" style="display:flex;flex-direction:column;">
+          <span class="service-num">Avis Google automatisés</span>
+          <p class="pricing-sub" style="margin-top:8px;">One-shot · Intégré au site</p>
+          <div class="pricing-divider"></div>
+          <div class="pricing-row"><span class="chk yes">✓</span>Sync Google My Business</div>
+          <div class="pricing-row"><span class="chk yes">✓</span>Badge note Google visible</div>
+          <div class="pricing-row"><span class="chk yes">✓</span>Mise à jour automatique</div>
+          <div style="flex:1"></div>
+          <button data-modal="avis" class="pricing-cta" style="margin-top:22px;width:100%;cursor:pointer;">Voir cette option</button>
+        </article>
+
+        <!-- Tableau de bord -->
+        <article class="service reveal" style="display:flex;flex-direction:column;">
+          <span class="service-num">Tableau de bord</span>
+          <p class="pricing-sub" style="margin-top:8px;">One-shot · Analytics inclus</p>
+          <div class="pricing-divider"></div>
+          <div class="pricing-row"><span class="chk yes">✓</span>Google Analytics configuré</div>
+          <div class="pricing-row"><span class="chk yes">✓</span>Dashboard simplifié</div>
+          <div class="pricing-row"><span class="chk yes">✓</span>Rapport mensuel par email</div>
+          <div class="pricing-row"><span class="chk yes">✓</span>Suivi des réservations en ligne</div>
+          <div style="flex:1"></div>
+          <button data-modal="dashboard" class="pricing-cta" style="margin-top:22px;width:100%;cursor:pointer;">Voir cette option</button>
+        </article>
+
+        <!-- Histoire détaillée -->
+        <article class="service reveal" style="display:flex;flex-direction:column;">
+          <span class="service-num">Histoire détaillée</span>
+          <p class="pricing-sub" style="margin-top:8px;">One-shot · Page dédiée</p>
+          <div class="pricing-divider"></div>
+          <div class="pricing-row"><span class="chk yes">✓</span>Page dédiée avec timeline visuelle</div>
+          <div class="pricing-row"><span class="chk yes">✓</span>Présentation de l'équipe en photos</div>
+          <div class="pricing-row"><span class="chk yes">✓</span>Valeurs, sourcing, engagements</div>
+          <div class="pricing-row"><span class="chk yes">✓</span>Storytelling rédigé par nos soins</div>
+          <div style="flex:1"></div>
+          <button data-modal="histoire" class="pricing-cta" style="margin-top:22px;width:100%;cursor:pointer;">Voir cette option</button>
+        </article>
+
+        <!-- Multilingue -->
+        <article class="service reveal" style="display:flex;flex-direction:column;">
+          <span class="service-num">Site multilingue</span>
+          <p class="pricing-sub" style="margin-top:8px;">One-shot · FR + EN inclus</p>
+          <div class="pricing-divider"></div>
+          <div class="pricing-row"><span class="chk yes">✓</span>Français + Anglais inclus</div>
+          <div class="pricing-row"><span class="chk yes">✓</span>Langue supplémentaire sur devis</div>
+          <div class="pricing-row"><span class="chk yes">✓</span>Sélecteur de langue élégant</div>
+          <div class="pricing-row"><span class="chk yes">✓</span>Menu &amp; pages traduits</div>
+          <div style="flex:1"></div>
+          <button data-modal="multilingue" class="pricing-cta" style="margin-top:22px;width:100%;cursor:pointer;">Voir cette option</button>
+        </article>
+
+        <!-- Menu interactif -->
+        <article class="service reveal" style="display:flex;flex-direction:column;">
+          <span class="service-num">Menu interactif</span>
+          <p class="pricing-sub" style="margin-top:8px;">One-shot · Intégré au site</p>
+          <div class="pricing-divider"></div>
+          <div class="pricing-row"><span class="chk yes">✓</span>Photos HD par plat</div>
+          <div class="pricing-row"><span class="chk yes">✓</span>Composition &amp; ingrédients détaillés</div>
+          <div class="pricing-row"><span class="chk yes">✓</span>Filtres allergènes, végé, sans gluten</div>
+          <div class="pricing-row"><span class="chk yes">✓</span>Vidéos de présentation intégrables</div>
+          <div class="pricing-row"><span class="chk yes">✓</span>Mise à jour facile sans agence</div>
+          <div style="flex:1"></div>
+          <button data-modal="menu" class="pricing-cta" style="margin-top:22px;width:100%;cursor:pointer;">Voir cette option</button>
+        </article>
+
+        <!-- Agent IA -->
+        <article class="service featured reveal" style="display:flex;flex-direction:column;">
+          <span class="service-badge">Tendance</span>
+          <span class="service-num">Agent IA — Chatbot</span>
+          <p class="pricing-sub" style="margin-top:8px;">One-shot · Intégré au site</p>
+          <div class="pricing-divider"></div>
+          <div class="pricing-row"><span class="chk yes">✓</span>Répond aux questions 24h/24</div>
+          <div class="pricing-row"><span class="chk yes">✓</span>Connaît menu, horaires, adresse</div>
+          <div class="pricing-row"><span class="chk yes">✓</span>Redirige vers WhatsApp si besoin</div>
+          <div class="pricing-row"><span class="chk yes">✓</span>Personnalisé au ton de votre restaurant</div>
+          <div class="pricing-row"><span class="chk yes">✓</span>Statistiques de conversations</div>
+          <div style="flex:1"></div>
+          <button data-modal="ia" class="pricing-cta primary" style="margin-top:22px;width:100%;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;">
+            Voir cette option
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+        </article>
+
+        <!-- Plan de salle -->
+        <article class="service featured reveal" style="display:flex;flex-direction:column;">
+          <span class="service-badge">Populaire</span>
+          <span class="service-num">Plan de salle interactif</span>
+          <p class="pricing-sub" style="margin-top:8px;">One-shot · Intégré au site</p>
+          <div class="pricing-divider"></div>
+          <div class="pricing-row"><span class="chk yes">✓</span>Plan SVG fidèle à votre salle</div>
+          <div class="pricing-row"><span class="chk yes">✓</span>Tables : disponible / occupé / sur demande</div>
+          <div class="pricing-row"><span class="chk yes">✓</span>Disponibilités en temps réel</div>
+          <div class="pricing-row"><span class="chk yes">✓</span>Confirmation email automatique</div>
+          <div class="pricing-row"><span class="chk yes">✓</span>Compatible mobile &amp; tablette</div>
+          <div style="flex:1"></div>
+          <button data-modal="plan" class="pricing-cta primary" style="margin-top:22px;width:100%;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;">
+            Voir cette option
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+        </article>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-col footer-brand">
+        <a href="/" class="brand">
+          <span class="wordmark">Flipster<span class="dot">.</span></span>
+          <small>Studio créatif</small>
+        </a>
+        <p>On est une petite équipe basée en France. On travaille sérieusement, on répond vite, et on ne disparaît pas une fois le site livré.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Plan du site</h5>
+        <ul>
+          <li><a href="/notre-offre.html">Notre offre</a></li>
+          <li><a href="/nos-options.html">Nos options</a></li>
+          <li><a href="/#work">Réalisations</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Nous joindre</h5>
+        <ul>
+          <li><a href="mailto:flipster.contact.eu@gmail.com">flipster.contact.eu@gmail.com</a></li>
+          <li><a href="tel:+33646075055">06 46 07 50 55</a></li>
+          <li><a href="/#contact">Prendre rendez-vous</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-wordmark" aria-hidden="true">Flipster<span class="end">.</span></div>
+    <div class="footer-bottom">
+      <span>© 2026 Flipster · Dirigé par Maxence Maitrejean · Réalisé avec soin en France.</span>
+      <div class="legal">
+        <a href="/mentions-legales.html">Mentions légales</a>
+        <a href="/confidentialite.html">CGV</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ========== MODALS ========== -->
+
+<!-- MODAL AVIS GOOGLE -->
+<div class="modal-overlay" id="modal-avis">
+  <div class="modal-box">
+    <div class="modal-header">
+      <div class="modal-header-left">
+        <span class="modal-icon">⭐</span>
+        <div><div class="modal-title">Avis Google automatisés</div><div class="modal-price">+149€ · One-shot</div></div>
+      </div>
+      <button class="modal-close" data-close="1">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-preview">
+        <div class="modal-preview-label">Aperçu — widget sur votre site</div>
+        <div class="mock-card">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+            <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#4285f4,#34a853);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff">G</div>
+            <div><div style="font-weight:600;font-size:13px;color:var(--fg)">Note Google</div><div style="font-size:11px;color:var(--fg-3)">Basé sur 127 avis</div></div>
+            <div style="margin-left:auto;font-family:var(--font-display);font-size:22px;font-weight:600;color:var(--fg)">4.8</div>
+          </div>
+          <div style="display:flex;gap:3px;margin-bottom:4px;"><span class="star">★★★★★</span></div>
+        </div>
+        <div class="mock-card">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+            <div style="width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--tan));font-size:11px;font-weight:700;color:#fff;display:flex;align-items:center;justify-content:center;">ML</div>
+            <div><div style="font-size:12px;font-weight:600;color:var(--fg)">Marie L.</div><div class="star" style="font-size:11px;">★★★★★</div></div>
+            <div style="margin-left:auto;font-size:10px;color:var(--fg-3)">il y a 2j</div>
+          </div>
+          <div style="font-size:12px;color:var(--fg-2);line-height:1.5;">"Accueil chaleureux, cuisine exceptionnelle. Le meilleur restaurant du quartier sans hésiter !"</div>
+        </div>
+        <div style="text-align:center;font-family:var(--font-mono);font-size:10px;color:var(--fg-3);letter-spacing:0.1em;">↻ MIS À JOUR AUTOMATIQUEMENT</div>
+      </div>
+      <div class="modal-info">
+        <div class="modal-desc">Vos derniers avis Google s'affichent automatiquement sur votre site. Vos clients voient votre réputation en temps réel — sans que vous ayez à faire quoi que ce soit.</div>
+        <ul class="modal-features">
+          <li>Synchronisation directe avec Google My Business</li>
+          <li>Widget personnalisé aux couleurs de votre restaurant</li>
+          <li>Badge note visible dès la page d'accueil</li>
+          <li>Mise à jour automatique sans intervention</li>
+          <li>Boost de confiance immédiat pour vos visiteurs</li>
+        </ul>
+        <div class="modal-cta-row">
+          <a href="#" class="modal-cta-main" onclick="openMaquette('/maquette-restaurant/');return false;">Voir sur la maquette →</a>
+          <button class="modal-cta-sec" data-close="1">Fermer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL TABLEAU DE BORD -->
+<div class="modal-overlay" id="modal-dashboard">
+  <div class="modal-box">
+    <div class="modal-header">
+      <div class="modal-header-left">
+        <span class="modal-icon">📊</span>
+        <div><div class="modal-title">Tableau de bord</div><div class="modal-price">+149€ · One-shot</div></div>
+      </div>
+      <button class="modal-close" data-close="1">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-preview">
+        <div class="modal-preview-label">Aperçu — votre dashboard Analytics</div>
+        <div class="mock-card">
+          <div style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;color:var(--fg-3);margin-bottom:10px;">CE MOIS — JUIN 2026</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+            <div style="background:color-mix(in oklch,var(--blue-4) 80%,white);border-radius:8px;padding:10px;">
+              <div style="font-size:10px;color:var(--fg-3);font-family:var(--font-mono);">VISITEURS</div>
+              <div style="font-family:var(--font-display);font-size:22px;font-weight:600;color:var(--fg);">1 284</div>
+              <div style="font-size:10px;color:#22c55e;">↑ +34%</div>
+            </div>
+            <div style="background:color-mix(in oklch,var(--tan-3) 80%,white);border-radius:8px;padding:10px;">
+              <div style="font-size:10px;color:var(--fg-3);font-family:var(--font-mono);">RÉSERVATIONS</div>
+              <div style="font-family:var(--font-display);font-size:22px;font-weight:600;color:var(--fg);">97</div>
+              <div style="font-size:10px;color:#22c55e;">↑ +12%</div>
+            </div>
+          </div>
+        </div>
+        <div class="mock-card">
+          <div style="font-size:11px;font-weight:600;color:var(--fg);margin-bottom:8px;">Sources de trafic</div>
+          <div style="display:flex;flex-direction:column;gap:7px;">
+            <div><div style="display:flex;justify-content:space-between;font-size:11px;color:var(--fg-2);margin-bottom:3px;"><span>Google</span><span>62%</span></div><div class="mock-bar"><div class="mock-fill" style="width:62%;background:linear-gradient(90deg,#4285f4,#34a853)"></div></div></div>
+            <div><div style="display:flex;justify-content:space-between;font-size:11px;color:var(--fg-2);margin-bottom:3px;"><span>Instagram</span><span>24%</span></div><div class="mock-bar"><div class="mock-fill" style="width:24%;background:linear-gradient(90deg,#e1306c,#f77737)"></div></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-info">
+        <div class="modal-desc">Sachez exactement combien de personnes visitent votre site, d'où elles viennent et ce qu'elles regardent. Des données claires pour prendre de meilleures décisions.</div>
+        <ul class="modal-features">
+          <li>Google Analytics configuré et prêt dès le lancement</li>
+          <li>Dashboard simplifié — pas besoin d'être expert</li>
+          <li>Rapport mensuel envoyé automatiquement par email</li>
+          <li>Suivi des clics sur le bouton de réservation</li>
+          <li>Identification des pages les plus visitées</li>
+        </ul>
+        <div class="modal-cta-row">
+          <a href="#" class="modal-cta-main" onclick="openMaquette('/maquette-restaurant/');return false;">Voir sur la maquette →</a>
+          <button class="modal-cta-sec" data-close="1">Fermer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL HISTOIRE -->
+<div class="modal-overlay" id="modal-histoire">
+  <div class="modal-box">
+    <div class="modal-header">
+      <div class="modal-header-left">
+        <span class="modal-icon">📖</span>
+        <div><div class="modal-title">Histoire détaillée</div><div class="modal-price">+190€ · One-shot</div></div>
+      </div>
+      <button class="modal-close" data-close="1">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-preview">
+        <div class="modal-preview-label">Aperçu — page "Notre histoire"</div>
+        <div class="mock-card">
+          <div style="font-family:var(--font-mono);font-size:10px;color:var(--fg-3);letter-spacing:0.1em;margin-bottom:8px;">NOTRE HISTOIRE</div>
+          <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:18px;color:var(--fg);line-height:1.3;margin-bottom:12px;">"Tout a commencé dans une petite cuisine familiale..."</div>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <div style="display:flex;gap:10px;align-items:flex-start;">
+              <div style="width:8px;height:8px;border-radius:50%;background:var(--blue-3);margin-top:4px;flex-shrink:0;"></div>
+              <div><div style="font-size:11px;font-weight:600;color:var(--fg);">2018 — L'ouverture</div><div style="font-size:11px;color:var(--fg-3);">Premiers pas rue du Marché</div></div>
+            </div>
+            <div style="display:flex;gap:10px;align-items:flex-start;">
+              <div style="width:8px;height:8px;border-radius:50%;background:var(--tan);margin-top:4px;flex-shrink:0;"></div>
+              <div><div style="font-size:11px;font-weight:600;color:var(--fg);">2021 — La reconnaissance</div><div style="font-size:11px;color:var(--fg-3);">Meilleur restaurant de l'année</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-info">
+        <div class="modal-desc">Une page dédiée qui raconte votre histoire, présente votre équipe et vos valeurs. Ce qui vous différencie des autres restaurants — mis en valeur pour convertir les visiteurs en clients fidèles.</div>
+        <ul class="modal-features">
+          <li>Timeline visuelle de votre aventure</li>
+          <li>Présentation de l'équipe avec photos</li>
+          <li>Section valeurs, sourcing, engagements locaux</li>
+          <li>Storytelling rédigé par nos soins</li>
+          <li>Design cohérent avec le reste du site</li>
+        </ul>
+        <div class="modal-cta-row">
+          <a href="#" class="modal-cta-main" onclick="openMaquette('/maquette-restaurant/');return false;">Voir sur la maquette →</a>
+          <button class="modal-cta-sec" data-close="1">Fermer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL MULTILINGUE -->
+<div class="modal-overlay" id="modal-multilingue">
+  <div class="modal-box">
+    <div class="modal-header">
+      <div class="modal-header-left">
+        <span class="modal-icon">🌍</span>
+        <div><div class="modal-title">Site multilingue</div><div class="modal-price">+190€ · FR + EN inclus</div></div>
+      </div>
+      <button class="modal-close" data-close="1">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-preview">
+        <div class="modal-preview-label">Aperçu — sélecteur de langue</div>
+        <div class="mock-card">
+          <div style="display:flex;gap:6px;margin-bottom:14px;">
+            <div style="padding:6px 14px;border-radius:999px;background:var(--fg);color:var(--paper);font-size:12px;font-weight:600;">🇫🇷 FR</div>
+            <div style="padding:6px 14px;border-radius:999px;border:1px solid var(--line);font-size:12px;color:var(--fg-2);">🇬🇧 EN</div>
+            <div style="padding:6px 14px;border-radius:999px;border:1px solid var(--line);font-size:12px;color:var(--fg-2);">🇪🇸 ES</div>
+          </div>
+          <div style="font-size:13px;font-weight:600;color:var(--fg);margin-bottom:4px;">Bienvenue chez Le Jardin</div>
+          <div style="font-size:12px;color:var(--fg-3);">Cuisine française de saison...</div>
+        </div>
+      </div>
+      <div class="modal-info">
+        <div class="modal-desc">Votre site traduit en anglais (et plus si besoin) pour accueillir les touristes et visiteurs internationaux. Un atout majeur dans les zones touristiques.</div>
+        <ul class="modal-features">
+          <li>Français + Anglais inclus dans le tarif</li>
+          <li>Espagnol ou autre langue en option sur devis</li>
+          <li>Sélecteur de langue élégant intégré à la navigation</li>
+          <li>Menu, carte, pages et formulaires traduits</li>
+          <li>SEO multilingue pour être trouvé en plusieurs langues</li>
+        </ul>
+        <div class="modal-cta-row">
+          <a href="#" class="modal-cta-main" onclick="openMaquette('/maquette-restaurant/');return false;">Voir sur la maquette →</a>
+          <button class="modal-cta-sec" data-close="1">Fermer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL MENU INTERACTIF -->
+<div class="modal-overlay" id="modal-menu">
+  <div class="modal-box">
+    <div class="modal-header">
+      <div class="modal-header-left">
+        <span class="modal-icon">🍽️</span>
+        <div><div class="modal-title">Menu interactif</div><div class="modal-price">+290€ · One-shot</div></div>
+      </div>
+      <button class="modal-close" data-close="1">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-preview">
+        <div class="modal-preview-label">Aperçu — menu digital sur votre site</div>
+        <div class="mock-card">
+          <div style="display:flex;gap:6px;margin-bottom:12px;">
+            <div style="padding:5px 12px;border-radius:999px;background:var(--fg);color:var(--paper);font-size:11px;">Entrées</div>
+            <div style="padding:5px 12px;border-radius:999px;border:1px solid var(--line);font-size:11px;color:var(--fg-2);">Plats</div>
+            <div style="padding:5px 12px;border-radius:999px;border:1px solid var(--line);font-size:11px;color:var(--fg-2);">Desserts</div>
+          </div>
+          <div style="background:linear-gradient(135deg,color-mix(in oklch,var(--tan-2) 60%,white),color-mix(in oklch,var(--blue-4) 70%,white));border-radius:10px;height:60px;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:10px;">🥗</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+            <div style="font-weight:600;font-size:13px;color:var(--fg);">Salade du marché</div>
+            <div style="font-family:var(--font-display);font-size:14px;font-weight:600;color:var(--blue);">12€</div>
+          </div>
+          <div style="display:flex;gap:5px;margin-top:6px;">
+            <span class="mock-tag" style="background:rgba(34,197,94,0.1);color:#16a34a;border:1px solid rgba(34,197,94,0.2);">🌱 Végétarien</span>
+          </div>
+        </div>
+      </div>
+      <div class="modal-info">
+        <div class="modal-desc">Vos plats présentés avec photos HD, descriptions détaillées, prix, allergènes et filtres alimentaires. Un menu digital élégant qui donne faim avant même d'arriver.</div>
+        <ul class="modal-features">
+          <li>Photos haute définition pour chaque plat</li>
+          <li>Composition, ingrédients et allergènes</li>
+          <li>Filtres végé, vegan, sans gluten, sans lactose</li>
+          <li>Vidéos de présentation des plats signatures</li>
+          <li>Mise à jour en autonomie sans repasser par l'agence</li>
+        </ul>
+        <div class="modal-cta-row">
+          <a href="#" class="modal-cta-main" onclick="openMaquette('/maquette-restaurant/');return false;">Voir sur la maquette →</a>
+          <button class="modal-cta-sec" data-close="1">Fermer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL AGENT IA -->
+<div class="modal-overlay" id="modal-ia">
+  <div class="modal-box">
+    <div class="modal-header">
+      <div class="modal-header-left">
+        <span class="modal-icon">🤖</span>
+        <div><div class="modal-title">Agent IA — Chatbot</div><div class="modal-price">+390€ · One-shot</div></div>
+      </div>
+      <button class="modal-close" data-close="1">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-preview">
+        <div class="modal-preview-label">Aperçu — chatbot sur votre site</div>
+        <div class="mock-card" style="padding:0;overflow:hidden;">
+          <div style="background:var(--fg);padding:10px 14px;display:flex;align-items:center;gap:8px;">
+            <div style="width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--blue-3),var(--tan));display:flex;align-items:center;justify-content:center;font-size:14px;">🤖</div>
+            <div><div style="font-size:12px;font-weight:600;color:var(--paper);">Assistant Le Jardin</div><div style="font-size:10px;color:rgba(255,255,255,0.6);">Disponible 24h/24</div></div>
+            <div style="margin-left:auto;width:8px;height:8px;border-radius:50%;background:#22c55e;"></div>
+          </div>
+          <div style="padding:12px;display:flex;flex-direction:column;gap:10px;background:color-mix(in oklch,var(--blue-4) 40%,white);">
+            <div style="background:var(--fg);color:var(--paper);padding:8px 12px;border-radius:0 10px 10px 10px;font-size:12px;max-width:85%;">Bonjour ! Comment puis-je vous aider ? 🌿</div>
+            <div style="background:white;color:var(--fg);padding:8px 12px;border-radius:10px 0 10px 10px;font-size:12px;max-width:85%;margin-left:auto;border:1px solid var(--line);">Vous êtes ouverts le lundi ?</div>
+            <div style="background:var(--fg);color:var(--paper);padding:8px 12px;border-radius:0 10px 10px 10px;font-size:12px;max-width:85%;">Oui, du lundi au samedi 12h-14h30 et 19h-22h30 !</div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-info">
+        <div class="modal-desc">Un assistant intelligent qui répond instantanément à vos clients : horaires, réservations, allergènes, menu du jour. Disponible 24h/24, 7j/7 — même quand vous dormez.</div>
+        <ul class="modal-features">
+          <li>Répond aux questions fréquentes automatiquement</li>
+          <li>Connaît votre menu, horaires et adresse</li>
+          <li>Redirige vers WhatsApp pour les demandes complexes</li>
+          <li>Personnalisé avec le nom et le ton de votre restaurant</li>
+          <li>Statistiques des conversations dans votre dashboard</li>
+        </ul>
+        <div class="modal-cta-row">
+          <a href="#" class="modal-cta-main" onclick="openMaquette('/maquette-restaurant/');return false;">Voir sur la maquette →</a>
+          <button class="modal-cta-sec" data-close="1">Fermer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL PLAN DE SALLE -->
+<div class="modal-overlay" id="modal-plan">
+  <div class="modal-box">
+    <div class="modal-header">
+      <div class="modal-header-left">
+        <span class="modal-icon">🗺️</span>
+        <div><div class="modal-title">Plan de salle interactif</div><div class="modal-price">+490€ · One-shot</div></div>
+      </div>
+      <button class="modal-close" data-close="1">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-preview">
+        <div class="modal-preview-label">Aperçu — plan de salle cliquable</div>
+        <div class="mock-card">
+          <div style="font-size:11px;font-weight:600;color:var(--fg);margin-bottom:10px;">Choisissez votre table</div>
+          <div style="background:linear-gradient(160deg,color-mix(in oklch,var(--tan-3) 80%,white),color-mix(in oklch,var(--blue-4) 60%,white));border-radius:10px;padding:14px;position:relative;min-height:120px;">
+            <div style="position:absolute;top:16px;left:20px;width:36px;height:36px;border-radius:8px;background:#22c55e;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#fff;">T1</div>
+            <div style="position:absolute;top:16px;left:66px;width:36px;height:36px;border-radius:8px;background:#22c55e;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#fff;">T2</div>
+            <div style="position:absolute;top:16px;right:20px;width:36px;height:36px;border-radius:8px;background:#ef4444;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#fff;opacity:0.8;">T3</div>
+            <div style="position:absolute;bottom:16px;left:20px;width:36px;height:36px;border-radius:8px;background:#f59e0b;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#fff;">T4</div>
+          </div>
+          <div style="display:flex;gap:10px;margin-top:10px;flex-wrap:wrap;">
+            <div style="display:flex;align-items:center;gap:5px;font-size:10px;color:var(--fg-3);"><div style="width:10px;height:10px;border-radius:2px;background:#22c55e;"></div>Disponible</div>
+            <div style="display:flex;align-items:center;gap:5px;font-size:10px;color:var(--fg-3);"><div style="width:10px;height:10px;border-radius:2px;background:#ef4444;"></div>Occupée</div>
+            <div style="display:flex;align-items:center;gap:5px;font-size:10px;color:var(--fg-3);"><div style="width:10px;height:10px;border-radius:2px;background:#f59e0b;"></div>Sur demande</div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-info">
+        <div class="modal-desc">Vos clients choisissent leur table directement sur le plan de votre salle depuis votre site. Compatible avec <strong style="color:var(--fg)">Hostme, Obypay ou Formitable</strong>.</div>
+        <ul class="modal-features">
+          <li>Compatible uniquement avec Hostme, Obypay et Formitable</li>
+          <li>Plan de salle fidèle à votre restaurant</li>
+          <li>Tables colorées : disponible / occupée / sur demande</li>
+          <li>Disponibilités mises à jour en temps réel</li>
+          <li>Confirmation automatique par email au client</li>
+        </ul>
+        <div class="modal-cta-row">
+          <a href="#" class="modal-cta-main" onclick="openMaquette('/maquette-restaurant/');return false;">Voir sur la maquette →</a>
+          <button class="modal-cta-sec" data-close="1">Fermer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL MAQUETTE -->
+<div id="maquetteModal" style="display:none;position:fixed;inset:0;z-index:99998;background:rgba(20,30,40,0.90);backdrop-filter:blur(8px);flex-direction:column;align-items:center;justify-content:center;">
+  <div style="position:relative;width:94vw;height:90vh;border-radius:14px;overflow:hidden;box-shadow:0 40px 100px -20px rgba(0,0,0,0.6);">
+    <button onclick="closeMaquetteModal()" style="position:absolute;top:12px;right:12px;z-index:10;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);color:#fff;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px);">✕</button>
+    <iframe id="maquetteFrame" src="" style="width:100%;height:100%;border:0;" title="Maquette"></iframe>
+  </div>
+</div>
+
+<script>
+  // nav scroll
+  const nav = document.getElementById('siteNav');
+  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 12); }, { passive: true });
+
+  // reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // modals
+  function flipsterCloseAllModals() {
+    document.querySelectorAll('.modal-overlay').forEach(o => { o.style.display = 'none'; });
+    document.body.style.overflow = '';
+  }
+  function flipsterOpenModal(id) {
+    flipsterCloseAllModals();
+    var el = document.getElementById('modal-' + id);
+    if (!el) return;
+    el.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+  }
+  window.addEventListener('load', function() {
+    document.querySelectorAll('[data-modal]').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault(); e.stopImmediatePropagation();
+        flipsterOpenModal(btn.getAttribute('data-modal'));
+      });
+    });
+    document.querySelectorAll('[data-close]').forEach(btn => {
+      btn.addEventListener('click', e => { e.preventDefault(); flipsterCloseAllModals(); });
+    });
+    document.querySelectorAll('.modal-overlay').forEach(overlay => {
+      overlay.addEventListener('click', e => { if (e.target === overlay) flipsterCloseAllModals(); });
+    });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') { flipsterCloseAllModals(); closeMaquetteModal(); } });
+  });
+
+  // maquette modal
+  function openMaquette(url) {
+    flipsterCloseAllModals();
+    const modal = document.getElementById('maquetteModal');
+    document.getElementById('maquetteFrame').src = url;
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMaquetteModal() {
+    const modal = document.getElementById('maquetteModal');
+    if (modal) { modal.style.display = 'none'; document.getElementById('maquetteFrame').src = ''; document.body.style.overflow = ''; }
+  }
+  document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('maquetteModal');
+    if (modal) modal.addEventListener('click', e => { if (e.target === modal) closeMaquetteModal(); });
+  });
+</script>
+</body>
+</html>
