@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /maquette-restaurant/
 
-Sitemap: https://flipster-deploy.vercel.app/sitemap.xml
+Sitemap: https://www.flipster.agency/sitemap.xml

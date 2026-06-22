@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Politique de confidentialité — Flipster</title>
+<meta name="robots" content="noindex" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Geist:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --white:    #ffffff;
+    --paper:    #fbfaf7;
+    --tan:      #d2b48c;
+    --tan-2:    #e8d7b9;
+    --tan-3:    #f3ead9;
+    --blue:     #1e3a5f;
+    --blue-2:   #2c5282;
+    --blue-3:   #4a7ba8;
+    --blue-4:   #e2ecf5;
+    --charcoal: #36454f;
+    --charcoal-2:#5a6b76;
+    --charcoal-3:#8a9aa3;
+    --orange:   #d97a2e;
+    --bg:       var(--paper);
+    --fg:       var(--charcoal);
+    --fg-2:     var(--charcoal-2);
+    --line:     rgba(54,69,79,0.10);
+    --line-2:   rgba(54,69,79,0.18);
+    --font-sans: 'Geist', 'Inter', sans-serif;
+    --font-serif: 'Playfair Display', 'Times New Roman', serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: var(--font-sans);
+    background: var(--bg);
+    color: var(--fg);
+    line-height: 1.65;
+  }
+
+  /* ── NAV ── */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(251,250,247,0.85);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line);
+    padding: 0 clamp(20px, 5vw, 60px);
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .brand {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    text-decoration: none;
+  }
+  .wordmark {
+    font-family: var(--font-serif);
+    font-weight: 600;
+    font-size: 22px;
+    color: var(--blue);
+    letter-spacing: -0.02em;
+  }
+  .wordmark .dot { color: var(--orange); }
+  .nav-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    color: var(--fg-2);
+    text-decoration: none;
+    transition: color .2s;
+  }
+  .nav-back:hover { color: var(--blue); }
+  .nav-back svg { flex-shrink: 0; }
+
+  /* ── WRAP ── */
+  .wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 56px 24px 96px;
+  }
+
+  /* ── HEADER PAGE ── */
+  .page-header {
+    margin-bottom: 48px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--line-2);
+  }
+  .page-tag {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--blue-3);
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+  .page-header h1 {
+    font-family: var(--font-serif);
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 600;
+    color: var(--blue);
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: 10px;
+  }
+  .page-header h1 em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--orange);
+  }
+  .updated {
+    font-size: 13px;
+    color: var(--charcoal-3);
+    font-family: 'JetBrains Mono', monospace, sans-serif;
+  }
+
+  /* ── INTRO ── */
+  .intro {
+    background: var(--blue-4);
+    border-left: 3px solid var(--blue-3);
+    border-radius: 0 10px 10px 0;
+    padding: 18px 22px;
+    margin-bottom: 40px;
+    font-size: 15px;
+    color: var(--charcoal-2);
+    line-height: 1.7;
+  }
+
+  /* ── SECTIONS ── */
+  .section {
+    margin-bottom: 44px;
+  }
+  .section h2 {
+    font-family: var(--font-serif);
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--blue);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--line-2);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section h2 .num {
+    font-family: 'Geist', monospace, sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--charcoal-3);
+    background: var(--tan-3);
+    padding: 3px 9px;
+    border-radius: 999px;
+    flex-shrink: 0;
+  }
+
+  p { font-size: 15px; color: var(--charcoal-2); line-height: 1.75; margin-bottom: 14px; }
+  p:last-child { margin-bottom: 0; }
+
+  ul {
+    padding-left: 0;
+    list-style: none;
+    margin-bottom: 14px;
+  }
+  ul li {
+    font-size: 15px;
+    color: var(--charcoal-2);
+    line-height: 1.7;
+    padding: 6px 0 6px 22px;
+    position: relative;
+    border-bottom: 1px solid var(--line);
+  }
+  ul li:last-child { border-bottom: none; }
+  ul li::before {
+    content: '–';
+    position: absolute;
+    left: 4px;
+    color: var(--orange);
+    font-weight: 700;
+  }
+  ul li strong { color: var(--charcoal); }
+
+  /* ── DATA CARD ── */
+  .data-card {
+    background: var(--white);
+    border: 1px solid var(--line-2);
+    border-radius: 14px;
+    padding: 22px 26px;
+    margin: 16px 0;
+    box-shadow: 0 4px 16px -6px rgba(54,69,79,0.08);
+  }
+  .data-row {
+    display: flex;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 14.5px;
+  }
+  .data-row:last-child { border-bottom: none; padding-bottom: 0; }
+  .data-row:first-child { padding-top: 0; }
+  .data-key {
+    min-width: 180px;
+    font-weight: 600;
+    color: var(--charcoal);
+    flex-shrink: 0;
+  }
+  .data-val { color: var(--charcoal-2); }
+  .data-val a { color: var(--blue-3); text-decoration: none; }
+  .data-val a:hover { text-decoration: underline; }
+
+  /* ── TABLE ── */
+  .table-wrap { overflow-x: auto; margin: 16px 0; border-radius: 12px; border: 1px solid var(--line-2); }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  thead tr { background: var(--blue); }
+  th {
+    color: white;
+    font-weight: 600;
+    padding: 12px 16px;
+    text-align: left;
+    font-family: var(--font-sans);
+    letter-spacing: 0.02em;
+  }
+  td {
+    padding: 11px 16px;
+    color: var(--charcoal-2);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+  tr:nth-child(even) td { background: var(--tan-3); }
+  tr:nth-child(odd) td { background: var(--white); }
+
+  /* ── HIGHLIGHT BOX ── */
+  .highlight {
+    background: linear-gradient(135deg, rgba(30,58,95,0.06), rgba(30,58,95,0.02));
+    border: 1px solid rgba(30,58,95,0.12);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin: 16px 0;
+    font-size: 14.5px;
+    color: var(--charcoal-2);
+    line-height: 1.7;
+  }
+
+  /* ── FOOTER ── */
+  .page-footer {
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line-2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .page-footer .brand-foot {
+    font-family: var(--font-serif);
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--blue);
+    letter-spacing: -0.02em;
+  }
+  .page-footer .brand-foot span { color: var(--orange); }
+  .page-footer p {
+    font-size: 13px;
+    color: var(--charcoal-3);
+    margin: 0;
+  }
+
+  @media (max-width: 600px) {
+    .data-row { flex-direction: column; gap: 3px; }
+    .data-key { min-width: auto; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav class="nav">
+  <a href="/" class="brand">
+    <span class="wordmark">Flipster<span class="dot">.</span></span>
+  </a>
+  <a href="/" class="nav-back">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 5 5 12 12 19"/></svg>
+    Retour au site
+  </a>
+</nav>
+
+<!-- ── CONTENU ── -->
+<div class="wrap">
+
+  <div class="page-header">
+    <div class="page-tag">Légal · RGPD</div>
+    <h1>Politique de <em>confidentialité</em></h1>
+    <div class="updated">Dernière mise à jour — mai 2026</div>
+  </div>
+
+  <div class="intro">
+    La présente politique de confidentialité décrit la manière dont Flipster collecte, utilise et protège les données personnelles des utilisateurs du site, conformément au Règlement Général sur la Protection des Données (RGPD – Règlement UE 2016/679) et à la loi « Informatique et Libertés » du 6 janvier 1978 modifiée.
+  </div>
+
+  <!-- 1 -->
+  <div class="section">
+    <h2><span class="num">01</span> Responsable du traitement</h2>
+    <div class="data-card">
+      <div class="data-row"><span class="data-key">Responsable</span><span class="data-val">Maxence MAITREJEAN (Flipster)</span></div>
+      <div class="data-row"><span class="data-key">Statut</span><span class="data-val">Entrepreneur individuel (micro-entreprise)</span></div>
+      <div class="data-row"><span class="data-key">Adresse</span><span class="data-val">29 rue de l'Arsenal, 28300 Mainvilliers, France</span></div>
+      <div class="data-row"><span class="data-key">SIRET</span><span class="data-val">10496294900012</span></div>
+      <div class="data-row"><span class="data-key">E-mail</span><span class="data-val"><a href="mailto:flipster.contact.eu@gmail.com">flipster.contact.eu@gmail.com</a></span></div>
+      <div class="data-row"><span class="data-key">Téléphone</span><span class="data-val"><a href="tel:+33646075055">06 46 07 50 55</a></span></div>
+    </div>
+  </div>
+
+  <!-- 2 -->
+  <div class="section">
+    <h2><span class="num">02</span> Données collectées</h2>
+    <p>Nous collectons uniquement les données nécessaires aux finalités décrites ci-dessous :</p>
+    <ul>
+      <li><strong>Via le formulaire de contact :</strong> nom, prénom, adresse e-mail, numéro de téléphone (facultatif), contenu de votre message.</li>
+      <li><strong>Via la navigation :</strong> données de connexion et d'usage (adresse IP, type de navigateur, pages consultées, durée de visite) collectées de manière anonymisée à des fins de mesure d'audience.</li>
+    </ul>
+    <p>Aucune donnée sensible (origine, opinions, santé, etc.) n'est collectée.</p>
+  </div>
+
+  <!-- 3 -->
+  <div class="section">
+    <h2><span class="num">03</span> Finalités et bases légales</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Finalité</th><th>Base légale</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Répondre à vos demandes de contact et de devis</td><td>Mesures précontractuelles / consentement</td></tr>
+          <tr><td>Gérer la relation commerciale et le suivi de projet</td><td>Exécution du contrat</td></tr>
+          <tr><td>Mesurer l'audience et améliorer le site</td><td>Consentement (cookies)</td></tr>
+          <tr><td>Respecter nos obligations légales et comptables</td><td>Obligation légale</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 4 -->
+  <div class="section">
+    <h2><span class="num">04</span> Destinataires des données</h2>
+    <p>Vos données sont destinées exclusivement à Flipster. Elles ne sont jamais vendues ni cédées à des tiers à des fins commerciales. Elles peuvent être traitées par nos prestataires techniques (hébergeur, outil de mesure d'audience) uniquement dans le cadre du fonctionnement du site.</p>
+  </div>
+
+  <!-- 5 -->
+  <div class="section">
+    <h2><span class="num">05</span> Hébergement et transferts hors UE</h2>
+    <p>Le site est hébergé par <strong>Vercel Inc.</strong> (États-Unis) et utilise des outils de mesure d'audience susceptibles de transférer des données vers les États-Unis. Ces transferts sont encadrés par des garanties appropriées (clauses contractuelles types de la Commission européenne et/ou adhésion au cadre de protection des données UE–États-Unis, « EU-US Data Privacy Framework »).</p>
+    <div class="highlight">
+      Si vous utilisez Google Analytics, ce point couvre aussi le transfert des données d'audience vers Google LLC (USA).
+    </div>
+  </div>
+
+  <!-- 6 -->
+  <div class="section">
+    <h2><span class="num">06</span> Durée de conservation</h2>
+    <ul>
+      <li><strong>Données de contact / prospects :</strong> 3 ans à compter du dernier contact.</li>
+      <li><strong>Données clients (contrats, factures) :</strong> 10 ans, conformément aux obligations comptables.</li>
+      <li><strong>Données de navigation / cookies :</strong> 13 mois maximum.</li>
+    </ul>
+  </div>
+
+  <!-- 7 -->
+  <div class="section">
+    <h2><span class="num">07</span> Vos droits</h2>
+    <p>Conformément au RGPD, vous disposez des droits suivants sur vos données :</p>
+    <ul>
+      <li>Droit d'accès et d'information</li>
+      <li>Droit de rectification</li>
+      <li>Droit à l'effacement (« droit à l'oubli »)</li>
+      <li>Droit à la limitation du traitement</li>
+      <li>Droit d'opposition</li>
+      <li>Droit à la portabilité de vos données</li>
+      <li>Droit de retirer votre consentement à tout moment</li>
+    </ul>
+    <p>Pour exercer ces droits, contactez-nous à : <a href="mailto:flipster.contact.eu@gmail.com" style="color:var(--blue-3);">flipster.contact.eu@gmail.com</a>. Une réponse vous sera apportée dans un délai maximum d'un mois.</p>
+  </div>
+
+  <!-- 8 -->
+  <div class="section">
+    <h2><span class="num">08</span> Cookies</h2>
+    <p>Le site utilise des cookies, notamment à des fins de mesure d'audience. Lors de votre première visite, un bandeau vous permet d'accepter ou de refuser les cookies non essentiels.</p>
+    <ul>
+      <li><strong>Cookies essentiels :</strong> nécessaires au fonctionnement du site (pas de consentement requis).</li>
+      <li><strong>Cookies de mesure d'audience :</strong> soumis à votre consentement préalable.</li>
+    </ul>
+  </div>
+
+  <!-- 9 -->
+  <div class="section">
+    <h2><span class="num">09</span> Sécurité</h2>
+    <p>Flipster met en œuvre les mesures techniques et organisationnelles appropriées (connexion sécurisée HTTPS, accès restreint aux données, sauvegardes) afin de protéger vos données contre toute perte, accès non autorisé ou divulgation.</p>
+  </div>
+
+  <!-- 10 -->
+  <div class="section">
+    <h2><span class="num">10</span> Réclamation</h2>
+    <p>Si vous estimez que vos droits ne sont pas respectés, vous pouvez introduire une réclamation auprès de la CNIL : <a href="https://www.cnil.fr" target="_blank" rel="noopener" style="color:var(--blue-3);">www.cnil.fr</a> — 3 Place de Fontenoy, TSA 80715, 75334 Paris Cedex 07.</p>
+  </div>
+
+  <!-- 11 -->
+  <div class="section">
+    <h2><span class="num">11</span> Modification de la politique</h2>
+    <p>Flipster se réserve le droit de modifier la présente politique de confidentialité à tout moment, notamment pour l'adapter aux évolutions légales et réglementaires. La date de dernière mise à jour figure en haut de page.</p>
+  </div>
+
+  <!-- FOOTER PAGE -->
+  <div class="page-footer">
+    <div class="brand-foot">Flipster<span>.</span></div>
+    <p>Maxence MAITREJEAN · SIRET 10496294900012 · Mainvilliers, France</p>
+  </div>
+
+</div>
+</body>
+</html>

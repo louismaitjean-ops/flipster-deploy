@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Mentions légales — Flipster</title>
+<meta name="robots" content="noindex" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Geist:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --white:     #ffffff;
+    --paper:     #fbfaf7;
+    --tan:       #d2b48c;
+    --tan-2:     #e8d7b9;
+    --tan-3:     #f3ead9;
+    --blue:      #1e3a5f;
+    --blue-2:    #2c5282;
+    --blue-3:    #4a7ba8;
+    --blue-4:    #e2ecf5;
+    --charcoal:  #36454f;
+    --charcoal-2:#5a6b76;
+    --charcoal-3:#8a9aa3;
+    --orange:    #d97a2e;
+    --line:      rgba(54,69,79,0.10);
+    --line-2:    rgba(54,69,79,0.18);
+    --font-sans: 'Geist','Inter',sans-serif;
+    --font-serif:'Playfair Display','Times New Roman',serif;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:var(--font-sans); background:var(--paper); color:var(--charcoal); line-height:1.65; }
+
+  /* NAV */
+  .nav {
+    position:sticky; top:0; z-index:100;
+    background:rgba(251,250,247,0.88); backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line);
+    padding:0 clamp(20px,5vw,60px); height:64px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .brand { text-decoration:none; display:flex; align-items:baseline; }
+  .wordmark { font-family:var(--font-serif); font-weight:600; font-size:22px; color:var(--blue); letter-spacing:-0.02em; }
+  .wordmark .dot { color:var(--orange); }
+  .nav-back { display:inline-flex; align-items:center; gap:6px; font-size:14px; color:var(--charcoal-2); text-decoration:none; transition:color .2s; }
+  .nav-back:hover { color:var(--blue); }
+
+  /* WRAP */
+  .wrap { max-width:780px; margin:0 auto; padding:56px 24px 96px; }
+
+  /* HEADER */
+  .page-header { margin-bottom:48px; padding-bottom:32px; border-bottom:1px solid var(--line-2); }
+  .page-tag { display:inline-block; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--blue-3); font-weight:600; margin-bottom:12px; }
+  .page-header h1 { font-family:var(--font-serif); font-size:clamp(28px,4vw,42px); font-weight:600; color:var(--blue); letter-spacing:-0.02em; line-height:1.15; margin-bottom:10px; }
+  .page-header h1 em { font-style:italic; font-weight:400; color:var(--orange); }
+  .updated { font-size:13px; color:var(--charcoal-3); }
+
+  /* SECTIONS */
+  .section { margin-bottom:44px; }
+  .section h2 {
+    font-family:var(--font-serif); font-size:20px; font-weight:600; color:var(--blue);
+    margin-bottom:16px; padding-bottom:10px; border-bottom:1px solid var(--line-2);
+    display:flex; align-items:center; gap:10px;
+  }
+  .num {
+    font-family:var(--font-sans); font-size:12px; font-weight:600; letter-spacing:0.1em;
+    color:var(--charcoal-3); background:var(--tan-3); padding:3px 9px; border-radius:999px; flex-shrink:0;
+  }
+
+  p { font-size:15px; color:var(--charcoal-2); line-height:1.75; margin-bottom:14px; }
+  p:last-child { margin-bottom:0; }
+  a { color:var(--blue-3); text-decoration:none; }
+  a:hover { text-decoration:underline; }
+
+  /* DATA CARD */
+  .data-card {
+    background:var(--white); border:1px solid var(--line-2); border-radius:14px;
+    padding:22px 26px; margin:16px 0;
+    box-shadow:0 4px 16px -6px rgba(54,69,79,0.08);
+  }
+  .data-row {
+    display:flex; gap:12px; padding:10px 0;
+    border-bottom:1px solid var(--line); font-size:14.5px;
+  }
+  .data-row:last-child { border-bottom:none; padding-bottom:0; }
+  .data-row:first-child { padding-top:0; }
+  .data-key { min-width:200px; font-weight:600; color:var(--charcoal); flex-shrink:0; }
+  .data-val { color:var(--charcoal-2); }
+
+  /* HIGHLIGHT */
+  .highlight {
+    background:linear-gradient(135deg,rgba(30,58,95,0.06),rgba(30,58,95,0.02));
+    border:1px solid rgba(30,58,95,0.12); border-radius:12px;
+    padding:18px 22px; margin:16px 0; font-size:14.5px; color:var(--charcoal-2); line-height:1.7;
+  }
+
+  /* FOOTER PAGE */
+  .page-footer {
+    margin-top:64px; padding-top:24px; border-top:1px solid var(--line-2);
+    display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;
+  }
+  .brand-foot { font-family:var(--font-serif); font-size:20px; font-weight:600; color:var(--blue); letter-spacing:-0.02em; }
+  .brand-foot span { color:var(--orange); }
+  .page-footer p { font-size:13px; color:var(--charcoal-3); margin:0; }
+
+  @media (max-width:600px) {
+    .data-row { flex-direction:column; gap:3px; }
+    .data-key { min-width:auto; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="/" class="brand">
+    <span class="wordmark">Flipster<span class="dot">.</span></span>
+  </a>
+  <a href="/" class="nav-back">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    Retour au site
+  </a>
+</nav>
+
+<div class="wrap">
+
+  <div class="page-header">
+    <div class="page-tag">Légal</div>
+    <h1>Mentions <em>légales</em></h1>
+    <div class="updated">Conformément à la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique (LCEN)</div>
+  </div>
+
+  <!-- 1 — Éditeur -->
+  <div class="section">
+    <h2><span class="num">01</span> Éditeur du site</h2>
+    <div class="data-card">
+      <div class="data-row"><span class="data-key">Nom commercial</span><span class="data-val">Flipster</span></div>
+      <div class="data-row"><span class="data-key">Responsable de publication</span><span class="data-val">Maxence MAITREJEAN</span></div>
+      <div class="data-row"><span class="data-key">Statut juridique</span><span class="data-val">Entrepreneur individuel (micro-entreprise)</span></div>
+      <div class="data-row"><span class="data-key">SIRET</span><span class="data-val">10496294900012</span></div>
+      <div class="data-row"><span class="data-key">Adresse</span><span class="data-val">29 rue de l'Arsenal, 28300 Mainvilliers, France</span></div>
+      <div class="data-row"><span class="data-key">E-mail</span><span class="data-val"><a href="mailto:flipster.contact.eu@gmail.com">flipster.contact.eu@gmail.com</a></span></div>
+      <div class="data-row"><span class="data-key">Téléphone</span><span class="data-val"><a href="tel:+33646075055">06 46 07 50 55</a></span></div>
+    </div>
+  </div>
+
+  <!-- 2 — Hébergement -->
+  <div class="section">
+    <h2><span class="num">02</span> Hébergement</h2>
+    <div class="data-card">
+      <div class="data-row"><span class="data-key">Hébergeur</span><span class="data-val">Vercel Inc.</span></div>
+      <div class="data-row"><span class="data-key">Adresse</span><span class="data-val">440 N Barranca Ave #4133, Covina, CA 91723, États-Unis</span></div>
+      <div class="data-row"><span class="data-key">Site web</span><span class="data-val"><a href="https://vercel.com" target="_blank" rel="noopener">vercel.com</a></span></div>
+    </div>
+  </div>
+
+  <!-- 3 — Propriété intellectuelle -->
+  <div class="section">
+    <h2><span class="num">03</span> Propriété intellectuelle</h2>
+    <p>L'ensemble du contenu de ce site (textes, visuels, design, code source) est la propriété exclusive de Flipster / Maxence MAITREJEAN, sauf mention contraire. Toute reproduction, représentation, modification ou exploitation, totale ou partielle, de ce contenu est strictement interdite sans autorisation préalable écrite.</p>
+  </div>
+
+  <!-- 4 — Responsabilité -->
+  <div class="section">
+    <h2><span class="num">04</span> Limitation de responsabilité</h2>
+    <p>Flipster s'efforce de maintenir le site accessible et à jour. Toutefois, Flipster ne saurait être tenu responsable des erreurs, omissions, interruptions de service ou de tout dommage direct ou indirect résultant de l'utilisation de ce site ou des informations qui y figurent.</p>
+    <p>Les liens hypertextes présents sur ce site pointent vers des ressources externes sur lesquelles Flipster n'exerce aucun contrôle. Flipster décline toute responsabilité quant au contenu de ces sites tiers.</p>
+  </div>
+
+  <!-- 5 — Données personnelles -->
+  <div class="section">
+    <h2><span class="num">05</span> Données personnelles</h2>
+    <p>Le traitement des données personnelles collectées via ce site est détaillé dans notre <a href="/confidentialite.html">politique de confidentialité</a>, conformément au RGPD (Règlement UE 2016/679) et à la loi « Informatique et Libertés ».</p>
+  </div>
+
+  <!-- 6 — Cookies -->
+  <div class="section">
+    <h2><span class="num">06</span> Cookies</h2>
+    <p>Ce site utilise des cookies afin d'améliorer votre expérience de navigation et de mesurer l'audience. Vous pouvez paramétrer l'utilisation des cookies à tout moment via votre navigateur. Pour plus d'informations, consultez notre <a href="/confidentialite.html">politique de confidentialité</a>.</p>
+  </div>
+
+  <!-- 7 — Droit applicable -->
+  <div class="section">
+    <h2><span class="num">07</span> Droit applicable</h2>
+    <p>Les présentes mentions légales sont régies par le droit français. En cas de litige, et après tentative de résolution amiable, les tribunaux français seront seuls compétents.</p>
+    <div class="highlight">
+      Pour toute question ou réclamation, contactez-nous à <a href="mailto:flipster.contact.eu@gmail.com">flipster.contact.eu@gmail.com</a> — nous répondons sous 48h.
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="brand-foot">Flipster<span>.</span></div>
+    <p>Maxence MAITREJEAN · SIRET 10496294900012 · Mainvilliers, France</p>
+  </div>
+
+</div>
+</body>
+</html>
