@@ -1,4 +1,12 @@
 {
   "cleanUrls": false,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "flipster-deploy.vercel.app" }],
+      "destination": "https://www.flipster.agency/$1",
+      "permanent": true
+    }
+  ]
 }
